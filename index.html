@@ -133,6 +133,7 @@
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#about" class="nav-link text-sm font-medium text-slate-200 hover:text-yellow-300 transition-colors">Giới thiệu</a>
                     <a href="#portfolio-goals" class="nav-link text-sm font-medium text-slate-200 hover:text-yellow-300 transition-colors">Mục tiêu</a>
+                    <a href="#midterm-video" class="nav-link text-sm font-medium text-slate-200 hover:text-yellow-300 transition-colors">Video Giữa Kỳ</a>
                     <a href="#exercises" class="nav-link text-sm font-medium text-slate-200 hover:text-yellow-300 transition-colors">Bài tập</a>
                     <a href="#reflection" class="nav-link text-sm font-medium text-slate-200 hover:text-yellow-300 transition-colors">Tổng kết</a>
                     <a href="https://drive.google.com/drive/folders/1XkUAaMOZHj53YAadYDVIveeSEIp9nOPl?usp=drive_link" target="_blank" class="flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-slate-950 font-semibold px-4 py-2 rounded-full text-xs shadow-md shadow-yellow-500/10 hover:shadow-yellow-500/20 active:scale-95 transition-all duration-300">
@@ -151,6 +152,7 @@
             <div id="mobile-menu" class="hidden md:hidden mt-4 pt-4 border-t border-white/5 flex flex-col gap-4">
                 <a href="#about" class="text-sm font-medium text-slate-300 hover:text-yellow-300 transition-colors py-1">Giới thiệu</a>
                 <a href="#portfolio-goals" class="text-sm font-medium text-slate-300 hover:text-yellow-300 transition-colors py-1">Mục tiêu</a>
+                <a href="#midterm-video" class="text-sm font-medium text-slate-300 hover:text-yellow-300 transition-colors py-1">Video Giữa Kỳ</a>
                 <a href="#exercises" class="text-sm font-medium text-slate-300 hover:text-yellow-300 transition-colors py-1">Bài tập</a>
                 <a href="#reflection" class="text-sm font-medium text-slate-300 hover:text-yellow-300 transition-colors py-1">Tổng kết</a>
                 <a href="https://drive.google.com/drive/folders/1XkUAaMOZHj53YAadYDVIveeSEIp9nOPl?usp=drive_link" target="_blank" class="flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-950 font-semibold px-4 py-2.5 rounded-full text-xs transition-all">
@@ -253,6 +255,27 @@
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     <span>Xem bài tập trên GG drive</span>
                 </a>
+            </section>
+
+            <!-- Midterm Video Section (New) -->
+            <section id="midterm-video" class="flex flex-col gap-6">
+                <div class="flex flex-col gap-2">
+                    <span class="text-xs font-semibold text-yellow-300 tracking-wider uppercase">Sản phẩm nổi bật</span>
+                    <h2 class="font-display font-bold text-2xl lg:text-3xl text-slate-100">Video Báo Cáo Giữa Kỳ</h2>
+                    <p class="text-xs text-slate-400">Dưới đây là video thuyết trình báo cáo giữa kỳ của mình, tóm tắt các nội dung cốt lõi và kết quả thực hành học phần.</p>
+                </div>
+                <div class="glass-panel p-5 rounded-3xl border border-white/5 overflow-hidden flex flex-col gap-4">
+                    <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-950/80 border border-white/5 shadow-inner">
+                        <iframe src="https://drive.google.com/file/d/1Micwt12U8DGg0jop9z5mJVZmNup7zLym/preview" class="absolute inset-0 w-full h-full border-0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 px-2">
+                        <span class="text-xs text-slate-400 flex items-center gap-2"><i class="fa-solid fa-circle-play text-yellow-400"></i> Nhấn nút Play để xem trực tiếp hoặc tải xuống từ liên kết bên cạnh.</span>
+                        <a href="https://drive.google.com/file/d/1Micwt12U8DGg0jop9z5mJVZmNup7zLym/view?usp=sharing" target="_blank" class="flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-slate-100 font-semibold px-5 py-2.5 rounded-full text-xs shadow-md shadow-indigo-500/10 active:scale-95 transition-all duration-300 shrink-0">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            <span>Mở video trong tab mới</span>
+                        </a>
+                    </div>
+                </div>
             </section>
 
             <!-- Exercises Section -->
@@ -805,20 +828,20 @@
                 lesson: "AI tạo sinh là trợ lý ý tưởng xuất sắc, nhưng nếu lạm dụng nguyên bản đầu ra của AI thì sản phẩm sẽ thô sơ và thiếu cá tính học thuật. Con người phải can thiệp sâu sắc ở khâu tinh chỉnh câu chữ, sửa dải màu và quy hoạch lại bố cục để tạo nên dấu ấn sáng tạo riêng biệt.",
                 process: [
                     "<strong>Bước 1: Tinh chỉnh kịch bản nội dung bằng ChatGPT:</strong><br>" +
-                    "• <em>Prompt 1 (Khởi tạo):</em> 'Hãy đề xuất nội dung cho một infographic với chủ đề ‘5 nguyên tắc sử dụng AI hiệu quả trong học tập’ dành cho sinh viên đại học. Nội dung cần ngắn gọn, dễ hiểu, có tiêu đề chính, 5 ý chính và mô tả ngắn cho từng ý' -> AI đề xuất 5 nguyên tắc đúng hướng nhưng độ dài mô tả còn quá dài, chưa phù hợp đưa vào infographic thưa chữ [doc4].<br>" +
-                    "• <em>Prompt 2 (Sửa đổi):</em> 'Hãy rút gọn nội dung trên thành dạng câu ngắn, phù hợp để đưa vào infographic. Mỗi nguyên tắc chỉ gồm một tiêu đề ngắn và một câu giải thích dưới 15 từ' -> Nhận kết quả 5 mục cực kỳ tinh gọn, súc tích [doc4].",
+                    "• <em>Prompt 1 (Khởi tạo):</em> 'Hãy đề xuất nội dung cho một infographic với chủ đề ‘5 nguyên tắc sử dụng AI hiệu quả trong học tập’ dành cho sinh viên đại học. Nội dung cần ngắn gọn, dễ hiểu, có tiêu đề chính, 5 ý chính và mô tả ngắn cho từng ý' -> AI đề xuất 5 nguyên tắc đúng hướng nhưng độ dài mô tả còn quá dài, chưa phù hợp đưa vào infographic thưa chữ.<br>" +
+                    "• <em>Prompt 2 (Sửa đổi):</em> 'Hãy rút gọn nội dung trên thành dạng câu ngắn, phù hợp để đưa vào infographic. Mỗi nguyên tắc chỉ gồm một tiêu đề ngắn và một câu giải thích dưới 15 từ' -> Nhận kết quả 5 mục cực kỳ tinh gọn, súc tích.",
                     "<strong>Bước 2: Sáng tạo hình ảnh minh họa bằng DALL-E:</strong><br>" +
-                    "• <em>Prompt 1 (Khởi tạo):</em> 'Create a clean modern illustration of a university student using AI tools for studying. The student is sitting at a desk with a laptop, books, notes, and abstract AI icons around the screen. Friendly educational style, soft colors, suitable for an academic infographic, no text' -> Hình ảnh đẹp mắt nhưng quá nhiều nét vẽ rối rắm, che khuất thông tin [doc4].<br>" +
-                    "• <em>Prompt 2 (Sửa đổi):</em> 'Create a simpler flat illustration of a student learning with AI on a laptop. Minimal background, clean shapes, soft blue and white color palette, no text, suitable for the header of an infographic' -> Nhận về ảnh phẳng tối giản xanh dương - trắng hoàn hảo để làm tiêu điểm đầu trang [doc4].",
+                    "• <em>Prompt 1 (Khởi tạo):</em> 'Create a clean modern illustration of a university student using AI tools for studying. The student is sitting at a desk with a laptop, books, notes, and abstract AI icons around the screen. Friendly educational style, soft colors, suitable for an academic infographic, no text' -> Hình ảnh đẹp mắt nhưng quá nhiều nét vẽ rối rắm, che khuất thông tin.<br>" +
+                    "• <em>Prompt 2 (Sửa đổi):</em> 'Create a simpler flat illustration of a student learning with AI on a laptop. Minimal background, clean shapes, soft blue and white color palette, no text, suitable for the header of an infographic' -> Nhận về ảnh phẳng tối giản xanh dương - trắng hoàn hảo để làm tiêu điểm đầu trang.",
                     "<strong>Bước 3: Thiết lập bố cục tổng quan bằng Canva AI:</strong><br>" +
-                    "• <em>Prompt Canva AI:</em> 'Tạo một infographic tiếng Việt với chủ đề ‘5 nguyên tắc sử dụng AI hiệu quả trong học tập’. Phong cách hiện đại, phù hợp với sinh viên đại học, màu xanh dương và trắng, bố cục rõ ràng, có 5 mục chính kèm icon minh họa' -> Canva AI dựng sẵn khung thô sơ, màu nền cơ bản nhưng khoảng cách không đều, phông chữ bị lỗi dấu tiếng Việt nặng [doc4].",
+                    "• <em>Prompt Canva AI:</em> 'Tạo một infographic tiếng Việt với chủ đề ‘5 nguyên tắc sử dụng AI hiệu quả trong học tập’. Phong cách hiện đại, phù hợp với sinh viên đại học, màu xanh dương và trắng, bố cục rõ ràng, có 5 mục chính kèm icon minh họa' -> Canva AI dựng sẵn khung thô sơ, màu nền cơ bản nhưng khoảng cách không đều, phông chữ bị lỗi dấu tiếng Việt nặng nề.",
                     "<strong>Bước 4: Thực hiện chỉnh sửa thủ công 60% để hoàn thiện sản phẩm cá nhân:</strong><br>" +
                     "• Trực tiếp chọn lọc và rút gọn lại văn bản trong từng khối chữ cho thanh thoát.<br>" +
                     "• Thay thế phông chữ mặc định của AI thành phông chữ Việt hóa không bị lỗi dấu.<br>" +
                     "• Điều chỉnh lại dải màu sắc nền để nâng độ tương phản, làm nổi bật thông điệp chính.<br>" +
                     "• Chèn tệp hình ảnh phẳng do DALL-E thiết kế vào phần đầu trang làm hình hiệu trực quan.<br>" +
                     "• Sắp xếp lại hệ thống các icon minh họa của 5 mục cân đối, gán kính lúp cho mục kiểm chứng, ổ khóa cho mục bảo mật dữ liệu.<br>" +
-                    "• Rà soát chính tả tiếng Việt thủ công hoàn toàn [doc4]."
+                    "• Rà soát chính tả tiếng Việt thủ công hoàn toàn."
                 ],
                 interactive: `
                     <div class="flex flex-col gap-4 font-mono text-xs">
@@ -1127,10 +1150,10 @@
                 }
             },
             2: {
-                title: "Tác vụ 2: Giải thích một khái niệm phức tạp (Chi phí cơ hội)",
+                title: "Tác vụ 2: Giải thích một khái niệm phức tạp (Chi pháp cơ hội)",
                 basic: {
                     prompt: "“Hãy giải thích khái niệm chi phí cơ hội.”",
-                    output: "[ChatGPT phản hồi thô]: (AI đưa ra định nghĩa lý thuyết học thuật chuẩn chỉnh nhưng rất ngắn gọn, khô khan, hoàn toàn thiếu ví dụ thực tế nên không phù hợp với người mới học)."
+                    output: "[ChatGPT phản hồi thô]: (AI đưa ra định nghĩa lý thuyết học thuật chuẩn chỉnh nhưng rất ngắn gọn, khô khan, hoàn toàn thiếu ví dụ minh họa trực quan nên không phù hợp với người mới học)."
                 },
                 improved: {
                     prompt: "“Hãy giải thích khái niệm chi phí cơ hội cho sinh viên năm nhất. Trình bày theo 4 phần: định nghĩa, ví dụ thực tế, ý nghĩa trong kinh tế học và lỗi hiểu sai thường gặp.”",
@@ -1205,7 +1228,7 @@
             4: {
                 tasks: "Trello Card: 'Viết phần lợi ích của AI đối với sinh viên' -> Trạng thái: DONE",
                 docs: "Google Docs: Trực tiếp biên soạn chương nội dung lợi ích của AI: hỗ trợ tóm tắt tài liệu học tập, viết prompt gợi ý và thiết kế bộ câu hỏi ôn tập.",
-                discord: "Discord: Cường nhắn: 'Phần viết lợi ích của AI mình đã soạn thảo xong trên Docs rồi, có chèn bình luận nhờ Hoa rà soát lại văn phong giúp mình với nha.'",
+                discord: "Discord: Cường nhắn: 'Phần viết lợi ích của AI mình đã soạn xong trên Docs rồi, có chèn bình luận nhờ Hoa rà soát lại văn phong giúp mình với nha.'",
                 lesson: "Đảm bảo tiến độ viết bài đúng hạn, thảo luận trực tiếp qua Comment của Docs để tránh xung đột."
             },
             5: {
