@@ -6,10 +6,10 @@
     <title>Digital Portfolio | Ngô Phú Cường</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Be Vietnam Pro (Fix lỗi font tiếng Việt triệt để) & Quicksand -->
+    <!-- Google Fonts: Plus Jakarta Sans & Quicksand -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -18,13 +18,13 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Be Vietnam Pro', 'sans-serif'],
+                        sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
                         display: ['Quicksand', 'sans-serif'],
                     },
                     colors: {
                         cosmic: {
-                            dark: '#050713',
-                            panel: 'rgba(10, 14, 28, 0.75)',
+                            dark: '#060814',
+                            panel: 'rgba(11, 15, 30, 0.75)',
                             border: 'rgba(255, 255, 255, 0.08)',
                             gold: '#ffd43b',
                             goldGlow: 'rgba(255, 212, 59, 0.15)',
@@ -42,22 +42,16 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            background-color: #050713;
+            background-color: #060814;
             color: #f1f5f9;
-            font-family: 'Be Vietnam Pro', sans-serif;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Quicksand', sans-serif;
         }
         
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
-            height: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #050713;
+            background: #060814;
         }
         ::-webkit-scrollbar-thumb {
             background: rgba(255, 212, 59, 0.3);
@@ -69,14 +63,14 @@
 
         /* Glassmorphism Classes */
         .glass-panel {
-            background: rgba(8, 11, 24, 0.75);
+            background: rgba(9, 12, 26, 0.8);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .glass-panel-heavy {
-            background: rgba(5, 7, 16, 0.96);
+            background: rgba(6, 8, 18, 0.96);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -92,7 +86,6 @@
             animation: morphBlob 12s ease-in-out infinite alternate;
         }
 
-        /* Active navigation styles */
         .nav-link {
             position: relative;
         }
@@ -111,7 +104,7 @@
         }
     </style>
 </head>
-<body class="antialiased relative min-h-screen">
+<body class="font-sans antialiased relative min-h-screen">
 
     <!-- Canvas Background Layer for Interactive Twinkling Stars -->
     <canvas id="starfield" class="fixed inset-0 pointer-events-none z-0 opacity-80"></canvas>
@@ -129,7 +122,7 @@
                 </a>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center gap-8">
+                <div class="hidden lg:flex items-center gap-8">
                     <a href="#about" class="nav-link text-sm font-medium text-slate-200 hover:text-yellow-300 transition-colors">Giới thiệu</a>
                     <a href="#portfolio-goals" class="nav-link text-sm font-medium text-slate-200 hover:text-yellow-300 transition-colors">Mục tiêu</a>
                     <a href="#exercises" class="nav-link text-sm font-medium text-slate-200 hover:text-yellow-300 transition-colors">Bài tập</a>
@@ -141,13 +134,13 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-slate-200 hover:text-yellow-300 focus:outline-none" aria-label="Toggle menu">
+                <button id="mobile-menu-btn" class="lg:hidden text-slate-200 hover:text-yellow-300 focus:outline-none" aria-label="Toggle menu">
                     <i class="fa-solid fa-bars text-xl"></i>
                 </button>
             </div>
 
             <!-- Mobile Menu Dropdown -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pt-4 border-t border-white/5 flex flex-col gap-4">
+            <div id="mobile-menu" class="hidden lg:hidden mt-4 pt-4 border-t border-white/5 flex flex-col gap-4">
                 <a href="#about" class="text-sm font-medium text-slate-300 hover:text-yellow-300 transition-colors py-1">Giới thiệu</a>
                 <a href="#portfolio-goals" class="text-sm font-medium text-slate-300 hover:text-yellow-300 transition-colors py-1">Mục tiêu</a>
                 <a href="#exercises" class="text-sm font-medium text-slate-300 hover:text-yellow-300 transition-colors py-1">Bài tập</a>
@@ -167,10 +160,13 @@
                 <!-- Avatar column -->
                 <div class="lg:col-span-5 flex justify-center lg:justify-start">
                     <div class="relative group">
+                        <!-- Cosmic background glow -->
                         <div class="absolute -inset-2 bg-gradient-to-r from-yellow-400 to-indigo-500 rounded-full blur-xl opacity-40 group-hover:opacity-60 transition-all duration-700"></div>
+                        <!-- Morphing avatar border -->
                         <div class="relative w-72 h-72 lg:w-80 lg:h-80 overflow-hidden animate-blob-morph border border-white/10 shadow-2xl">
                             <img src="Hình 1.jpg" alt="Ngô Phú Cường" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         </div>
+                        <!-- Tiny absolute design moon -->
                         <div class="absolute top-2 right-2 w-10 h-10 rounded-full glass-panel flex items-center justify-center border border-yellow-300/30 animate-bounce" style="animation-duration: 4s;">
                             <i class="fa-solid fa-moon text-yellow-300 text-sm"></i>
                         </div>
@@ -180,7 +176,7 @@
                 <!-- Info and details column -->
                 <div class="lg:col-span-7 flex flex-col gap-6 text-center lg:text-left">
                     <div class="flex flex-col gap-2">
-                        <span class="inline-block self-center lg:self-start bg-indigo-500/10 text-indigo-300 border border-indigo-400/20 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Hồ sơ năng lực số cá nhân</span>
+                        <span class="inline-block self-center lg:self-start bg-indigo-500/10 text-indigo-300 border border-indigo-400/20 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Sinh viên đại học</span>
                         <h1 class="font-display font-extrabold text-4xl lg:text-5xl bg-gradient-to-r from-yellow-200 via-amber-200 to-indigo-200 bg-clip-text text-transparent leading-tight">
                             Ngô Phú Cường
                         </h1>
@@ -189,13 +185,14 @@
 
                     <div class="glass-panel p-6 rounded-2xl flex flex-col gap-4 text-slate-300 leading-relaxed text-sm">
                         <p>
-                            Chào mừng bạn đến với góc nhỏ sáng tạo của mình! Đây là nơi mình lưu trữ và hệ thống hóa toàn bộ hành trình trải nghiệm học phần 
-                            <span class="text-yellow-300 font-semibold">Nhập môn Công nghệ số và Ứng dụng trí tuệ nhân tạo</span> [doc3, doc5]. 
-                            Với xuất phát điểm là một sinh viên thuộc khối ngành Kinh tế, việc tiếp xúc sâu rộng với các công cụ công nghệ số lúc đầu mang lại những bỡ ngỡ nhất định. 
-                            Tuy nhiên, khi trực tiếp giải quyết các bài toán thực hành từ tuần 1 đến tuần 6, mình đã dần làm chủ tư duy hệ thống và cách thức phối hợp nhịp nhàng với Trí tuệ nhân tạo [doc3, doc5].
+                            Chào mừng bạn đến với góc nhỏ sáng tạo của mình! Đây là nơi mình lưu trữ và số hóa hành trình trải nghiệm học phần 
+                            <span class="text-yellow-300 font-semibold">Nhập môn Công nghệ số và Ứng dụng trí tuệ nhân tạo</span>. 
+                            Là một sinh viên thuộc khối ngành Kinh tế, việc tiếp cận sâu rộng với thế giới công nghệ số và AI ban đầu có những lạ lẫm, 
+                            nhưng càng đi qua từng bài tập thực tế, mình càng nhận thức rõ vai trò chuyển đổi cốt lõi của công nghệ trong học tập và công việc.
                         </p>
                         <p>
-                            Trang Digital Portfolio này là minh chứng trực quan cho những nỗ lực tự học, làm việc nhóm chuyên nghiệp và cam kết sử dụng AI có trách nhiệm, liêm chính của mình trong suốt học phần [doc3, doc5].
+                            Mục tiêu của chiếc Portfolio số này không chỉ là một kho lưu trữ bài tập cá nhân gọn gàng, mà nó còn lưu giữ những 
+                            bài học tự đúc rút, thể hiện quá trình làm quen và ứng dụng AI hỗ trợ học tập một cách thông minh, có kiểm soát và giữ vững đạo đức học thuật.
                         </p>
                     </div>
                 </div>
@@ -204,7 +201,7 @@
             <!-- Portfolio Goals Section -->
             <section id="portfolio-goals" class="flex flex-col gap-8">
                 <div class="flex flex-col gap-2">
-                    <span class="text-xs font-semibold text-yellow-300 tracking-wider uppercase">Định hướng hành trình</span>
+                    <span class="text-xs font-semibold text-yellow-300 tracking-wider uppercase">Định hướng</span>
                     <h2 class="font-display font-bold text-2xl lg:text-3xl text-slate-100">Mục Tiêu Của Digital Portfolio</h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -213,26 +210,26 @@
                             <i class="fa-solid fa-graduation-cap text-lg"></i>
                         </div>
                         <h3 class="font-display font-bold text-slate-100 text-lg">Hệ thống hóa năng lực số</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">Trình bày một cách trực quan, khoa học các kỹ năng công nghệ từ thao tác tệp tin cơ bản cho đến tích hợp và quản trị các nền tảng cộng tác số chuyên sâu [doc3, doc6].</p>
+                        <p class="text-xs text-slate-400 leading-relaxed">Trình bày một cách trực quan, mạch lạc các kỹ năng công nghệ cốt lõi và tư duy hệ thống được rèn luyện xuyên suốt chương trình học phần.</p>
                     </div>
                     <div class="glass-panel p-6 rounded-2xl flex flex-col gap-4">
                         <div class="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-300/20 flex items-center justify-center text-yellow-300">
                             <i class="fa-solid fa-brain text-lg"></i>
                         </div>
-                        <h3 class="font-display font-bold text-slate-100 text-lg">Làm chủ Trí tuệ Nhân tạo</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">Khẳng định năng lực điều phối, tinh chỉnh prompt và làm chủ đầu ra của các công cụ Generative AI, giữ thế chủ động của con người trong quá trình sáng tạo [doc2, doc4].</p>
+                        <h3 class="font-display font-bold text-slate-100 text-lg">Ứng dụng AI có kiểm soát</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Phản ánh trung thực năng lực làm chủ, tinh chỉnh và kết hợp các công cụ AI tạo sinh thay vì phụ thuộc một cách thụ động, máy móc.</p>
                     </div>
                     <div class="glass-panel p-6 rounded-2xl flex flex-col gap-4">
                         <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-400/20 flex items-center justify-center text-purple-300">
                             <i class="fa-solid fa-shield-halved text-lg"></i>
                         </div>
                         <h3 class="font-display font-bold text-slate-100 text-lg">Bảo đảm liêm chính học thuật</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">Ghi chép minh bạch quá trình làm bài thực tế, đối chiếu chính sách liêm chính khoa học và cam kết sâu sắc về trách nhiệm đạo đức khi ứng dụng AI [doc5].</p>
+                        <p class="text-xs text-slate-400 leading-relaxed">Lưu trữ minh bạch quá trình làm việc, minh chứng rõ ràng và khẳng định cam kết nghiêm túc về đạo đức sử dụng AI trong môi trường đại học.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Google Drive Section -->
+            <!-- Google Drive Callout Section -->
             <section class="glass-panel p-6 rounded-2xl border border-yellow-400/10 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/5 blur-3xl pointer-events-none"></div>
                 <div class="flex items-center gap-4 text-center md:text-left flex-col md:flex-row">
@@ -254,7 +251,7 @@
             <section id="exercises" class="flex flex-col gap-10">
                 <div class="flex flex-col gap-3 text-center">
                     <h2 class="font-display font-extrabold text-3xl text-slate-100 bg-gradient-to-r from-yellow-300 to-indigo-200 bg-clip-text text-transparent">Hành Trình Thực Hành Chi Tiết</h2>
-                    <p class="text-sm text-slate-400 max-w-2xl mx-auto">Click vào biểu tượng mở rộng để khám phá chi tiết các bước làm bài thực tế, báo cáo đầy đủ và hệ thống tương tác mô phỏng chất lượng cao cho từng bài tập.</p>
+                    <p class="text-sm text-slate-400 max-w-2xl mx-auto">Click vào "Xem chi tiết" để mở bảng điều khiển tương tác (interactive simulation) và báo cáo thực hành đầy đủ cho từng bài tập.</p>
                 </div>
 
                 <!-- Grid of 6 Exercise Cards -->
@@ -269,8 +266,8 @@
                             <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Bài tập 1</span>
                         </div>
                         <div class="flex flex-col gap-2">
-                            <h3 class="font-display font-bold text-slate-100 text-lg">Bài 1: Máy tính và thiết bị ngoại vi</h3>
-                            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Mô tả đầy đủ quy trình 12 bước quản trị hệ thống tệp tin trên Windows File Explorer, dọn dẹp bộ nhớ và khôi phục dữ liệu an toàn [doc6].</p>
+                            <h3 class="font-display font-bold text-slate-100 text-lg">Bài tập 1 - Bài 1: Máy tính và thiết bị ngoại vi</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Mô tả đầy đủ quy trình 12 bước thao tác hệ thống tệp tin trên Windows File Explorer, dọn dẹp và khôi phục dữ liệu chuyên nghiệp.</p>
                         </div>
                         <div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
                             <span class="text-xs text-yellow-300 font-medium">Khám phá chi tiết →</span>
@@ -289,8 +286,8 @@
                             <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Bài tập 2</span>
                         </div>
                         <div class="flex flex-col gap-2">
-                            <h3 class="font-display font-bold text-slate-100 text-lg">Bài 2: Khai thác dữ liệu và thông tin</h3>
-                            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Nghiên cứu cơ sở dữ liệu học thuật, thực hiện thẩm định độ tin cậy khoa học của 11 công trình học thuật nền tảng về YOLO và Explainable AI (Grad-CAM) [doc1].</p>
+                            <h3 class="font-display font-bold text-slate-100 text-lg">Bài tập 2 - Bài 2: Khai thác dữ liệu và thông tin</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Đánh giá độ tin cậy khoa học của 11 công trình học thuật nền tảng về ứng dụng YOLO và Explainable AI (Grad-CAM) trên thiết bị biên.</p>
                         </div>
                         <div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
                             <span class="text-xs text-yellow-300 font-medium">Khám phá chi tiết →</span>
@@ -309,8 +306,8 @@
                             <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Bài tập 3</span>
                         </div>
                         <div class="flex flex-col gap-2">
-                            <h3 class="font-display font-bold text-slate-100 text-lg">Bài 3: Tổng quan về trí tuệ nhân tạo</h3>
-                            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Nghiên cứu cấu trúc và so sánh các bộ prompt 3 cấp độ (Cơ bản, Cải tiến, Nâng cao) hỗ trợ đắc lực cho các tác vụ tóm tắt học thuật, giải thích chi phí cơ hội và chính sách tài khóa [doc2].</p>
+                            <h3 class="font-display font-bold text-slate-100 text-lg">Bài tập 3 - Bài 3: Tổng quan về trí tuệ nhân tạo</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Kiến tạo các bộ prompt 3 cấp độ (Cơ bản, Cải tiến, Nâng cao) phục vụ đắc lực cho các tác vụ tóm tắt học thuật, giải thích chi phí cơ hội và ôn tập chính sách tài khóa.</p>
                         </div>
                         <div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
                             <span class="text-xs text-yellow-300 font-medium">Khám phá chi tiết →</span>
@@ -329,8 +326,8 @@
                             <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Bài tập 4</span>
                         </div>
                         <div class="flex flex-col gap-2">
-                            <h3 class="font-display font-bold text-slate-100 text-lg">Bài 4: Giao tiếp và hợp tác trong môi trường số</h3>
-                            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Xây dựng quy trình làm việc nhóm từ xa dựa trên bộ 4 công cụ: Trello, Google Docs, Drive và Discord; thiết lập cấu trúc lưu trữ và quy tắc đặt tên tệp chuẩn hóa [doc3].</p>
+                            <h3 class="font-display font-bold text-slate-100 text-lg">Bài tập 4 - Bài 4: Giao tiếp và hợp tác trong môi trường số</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Vận dụng Trello, Google Docs, Drive và Discord xây dựng dự án nhóm chuyên nghiệp, thiết kế cấu trúc lưu trữ và quy tắc đặt tên tệp chuẩn hóa.</p>
                         </div>
                         <div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
                             <span class="text-xs text-yellow-300 font-medium">Khám phá chi tiết →</span>
@@ -349,8 +346,8 @@
                             <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Bài tập 5</span>
                         </div>
                         <div class="flex flex-col gap-2">
-                            <h3 class="font-display font-bold text-slate-100 text-lg">Bài 5: Sáng tạo nội dung số</h3>
-                            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Thiết kế Infographic "5 Nguyên tắc sử dụng AI hiệu quả" thông qua sự phối hợp nhịp nhàng giữa ChatGPT, DALL-E và Canva AI, bảo đảm dấu ấn cá nhân tay nghề [doc4].</p>
+                            <h3 class="font-display font-bold text-slate-100 text-lg">Bài tập 5 - Bài 5: Sáng tạo nội dung số</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Đồng sáng tạo Infographic "5 Nguyên tắc sử dụng AI hiệu quả" thông qua sự kết hợp ăn ý giữa ChatGPT, DALL-E và Canva AI.</p>
                         </div>
                         <div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
                             <span class="text-xs text-yellow-300 font-medium">Khám phá chi tiết →</span>
@@ -369,8 +366,8 @@
                             <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Bài tập 6</span>
                         </div>
                         <div class="flex flex-col gap-2">
-                            <h3 class="font-display font-bold text-slate-100 text-lg">Bài 6: An toàn và liêm chính học thuật trong môi trường số</h3>
-                            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Xây dựng ranh giới liêm chính khoa học dựa trên việc đối chiếu chính sách quản lý AI, định hình ranh giới cộng tác đạo đức và đề xuất kịch bản truyền thông có trách nhiệm [doc5].</p>
+                            <h3 class="font-display font-bold text-slate-100 text-lg">Bài tập 6 - Bài 6: An toàn và liêm chính học thuật trong môi trường số</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Xây dựng ranh giới liêm chính khoa học dựa trên chính sách 3 mức (RED-YELLOW-GREEN) và thiết lập kịch bản tuyên truyền đạo đức số.</p>
                         </div>
                         <div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
                             <span class="text-xs text-yellow-300 font-medium">Khám phá chi tiết →</span>
@@ -387,7 +384,7 @@
             <section id="reflection" class="glass-panel p-8 lg:p-12 rounded-3xl flex flex-col gap-10 border-white/5">
                 <div class="flex flex-col gap-2">
                     <span class="text-xs font-semibold text-yellow-300 tracking-wider uppercase">Tổng kết học tập</span>
-                    <h2 class="font-display font-bold text-2xl lg:text-3xl text-slate-100">Thuận Lợi, Khó Khăn & Bài Học Rút Ra</h2>
+                    <h2 class="font-display font-bold text-2xl lg:text-3xl text-slate-100">Khó Khăn, Thuận Lợi & Bài Học Đúc Rút</h2>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 text-sm">
@@ -396,10 +393,10 @@
                         <div class="w-10 h-10 rounded-lg bg-green-500/10 text-green-300 flex items-center justify-center">
                             <i class="fa-solid fa-circle-check text-lg"></i>
                         </div>
-                        <h3 class="font-display font-bold text-slate-100 text-base">Thuận lợi thu được</h3>
+                        <h3 class="font-display font-bold text-slate-100 text-base">Thuận Lợi Thu Được</h3>
                         <p class="text-slate-400 leading-relaxed text-xs">
-                            Học phần được xây dựng với lộ trình thực hành trực quan, từ những thao tác hệ thống tệp tin cơ bản cho đến việc tiếp cận và điều phối các công cụ Generative AI tiên tiến [doc3, doc5]. 
-                            Sự đồng hành của các tài liệu kỹ thuật mở và tài liệu chính thống giúp mình dễ dàng tự học, thử nghiệm và tối ưu hóa quy trình học tập cá nhân [doc1].
+                            Học phần cung cấp lộ trình thực hành khoa học, gắn liền giữa nền tảng công nghệ cơ bản với xu hướng AI hiện đại. 
+                            Sự đồng hành của các tài liệu kỹ thuật mở giúp mình dễ dàng tiếp cận, tự do kiểm tra và thử nghiệm các mô hình ngôn ngữ lớn một cách trực quan, hứng khởi.
                         </p>
                     </div>
 
@@ -408,10 +405,10 @@
                         <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-300 flex items-center justify-center">
                             <i class="fa-solid fa-circle-exclamation text-lg"></i>
                         </div>
-                        <h3 class="font-display font-bold text-slate-100 text-base">Khó khăn đối mặt</h3>
+                        <h3 class="font-display font-bold text-slate-100 text-base">Khó Khăn Đối Mặt</h3>
                         <p class="text-slate-400 leading-relaxed text-xs">
-                            Khó khăn lớn nhất là vượt qua hiện tượng "ảo giác" thông tin của AI (hallucination) để kiểm chứng tính xác thực của các trích dẫn tài liệu học thuật [doc5]. 
-                            Bên cạnh đó, việc thống nhất định dạng tệp tin, kiểm soát dải màu thiết kế và đồng bộ giọng văn giữa các thành viên nhóm trong những ngày đầu còn gặp nhiều lúng túng [doc3, doc4].
+                            Khó khăn lớn nhất là vượt qua hiện tượng "ảo giác" của AI để kiểm chứng tính xác thực của thông tin học thuật. 
+                            Đồng thời, khi phối hợp nhóm, việc đồng bộ tiến độ và dung hòa sự khác biệt về giọng văn trên cùng một tài liệu chung ban đầu còn gặp nhiều lúng túng.
                         </p>
                     </div>
 
@@ -420,10 +417,10 @@
                         <div class="w-10 h-10 rounded-lg bg-yellow-500/10 text-yellow-300 flex items-center justify-center">
                             <i class="fa-solid fa-lightbulb text-lg"></i>
                         </div>
-                        <h3 class="font-display font-bold text-slate-100 text-base">Bài học rút ra</h3>
+                        <h3 class="font-display font-bold text-slate-100 text-base">Bài Học Kinh Nghiệm</h3>
                         <p class="text-slate-400 leading-relaxed text-xs">
-                            Kỷ luật cá nhân trong quản trị dữ liệu chính là chìa khóa để nâng cao hiệu suất làm việc số [doc3]. 
-                            Trong kỷ nguyên AI tạo sinh, con người tuyệt đối không được phó mặc tư duy cho máy móc, phải luôn giữ vai trò chủ động kiểm soát chất lượng thẩm mỹ, học thuật và bảo đảm đạo đức trung thực [doc4, doc5].
+                            Mình nhận ra công cụ số chỉ phát huy tối đa công năng khi người dùng thiết lập được thói quen làm việc có tổ chức và kỷ luật cá nhân. 
+                            Trong kỷ nguyên AI tạo sinh, con người phải luôn giữ vai trò chủ động điều phối, kiểm soát chất lượng và đặt đạo đức học thuật lên hàng đầu.
                         </p>
                     </div>
                 </div>
@@ -434,7 +431,7 @@
         <!-- Footer -->
         <footer class="mt-auto py-8 border-t border-white/5 glass-panel text-center text-xs text-slate-500">
             <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p>© 2026 Ngô Phú Cường. Học phần Nhập môn Công nghệ số & Ứng dụng AI [doc3].</p>
+                <p>© 2026 Ngô Phú Cường. Học phần Nhập môn Công nghệ số & Ứng dụng AI.</p>
                 <div class="flex items-center gap-4">
                     <a href="https://drive.google.com/drive/folders/1XkUAaMOZHj53YAadYDVIveeSEIp9nOPl?usp=drive_link" target="_blank" class="hover:text-yellow-300 transition-colors">Tài liệu tham khảo</a>
                     <span class="text-white/10">•</span>
@@ -450,12 +447,12 @@
         <div class="absolute inset-0 bg-slate-950/80 backdrop-filter backdrop-blur-md" onclick="closeModal()"></div>
         
         <!-- Modal Panel inside grid -->
-        <div id="modal-container" class="relative glass-panel-heavy rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-8 transform scale-95 transition-all duration-300 flex flex-col gap-6 text-slate-300">
+        <div id="modal-container" class="relative glass-panel-heavy rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-8 transform scale-95 transition-all duration-300 flex flex-col gap-6 text-slate-300">
             <!-- Header elements -->
             <div class="flex items-start justify-between border-b border-white/10 pb-4">
                 <div class="flex flex-col gap-1.5">
                     <span id="modal-tag" class="text-[10px] uppercase font-bold tracking-widest text-indigo-300">Bài tập</span>
-                    <h3 id="modal-title" class="font-display font-extrabold text-2xl text-slate-100">Tiêu đề bài tập</h3>
+                    <h3 id="modal-title" class="font-display font-extrabold text-xl lg:text-2xl text-slate-100">Tiêu đề bài tập</h3>
                 </div>
                 <button onclick="closeModal()" class="w-9 h-9 rounded-full bg-white/5 hover:bg-yellow-400 hover:text-slate-900 flex items-center justify-center transition-colors">
                     <i class="fa-solid fa-xmark"></i>
@@ -470,7 +467,7 @@
                         <i class="fa-solid fa-bullseye text-yellow-300 text-xs"></i>
                         <span>Mục tiêu bài tập</span>
                     </h4>
-                    <p id="modal-goal" class="text-slate-400 text-xs leading-relaxed"></p>
+                    <p id="modal-goal" class="text-slate-400 text-xs"></p>
                 </div>
 
                 <!-- Process / Execution Steps -->
@@ -479,7 +476,7 @@
                         <i class="fa-solid fa-route text-indigo-300 text-xs"></i>
                         <span>Các bước thực hiện chi tiết</span>
                     </h4>
-                    <div id="modal-process" class="flex flex-col gap-3 text-slate-300 text-xs bg-slate-900/40 p-4 rounded-xl border border-white/5 leading-relaxed"></div>
+                    <div id="modal-process" class="flex flex-col gap-3 text-slate-300 text-xs bg-slate-900/40 p-4 rounded-xl border border-white/5"></div>
                 </div>
 
                 <!-- Lesson Learned -->
@@ -488,7 +485,7 @@
                         <i class="fa-solid fa-lightbulb text-yellow-300 text-xs"></i>
                         <span>Bài học rút ra</span>
                     </h4>
-                    <p id="modal-lesson" class="text-slate-400 text-xs italic border-l-2 border-yellow-300 pl-3 leading-relaxed"></p>
+                    <p id="modal-lesson" class="text-slate-400 text-xs italic border-l-2 border-yellow-300 pl-3"></p>
                 </div>
 
                 <!-- Interactive Simulator Component -->
@@ -508,7 +505,7 @@
                 <span class="text-xs text-slate-500">Mã sinh viên: 25052771 • Ngô Phú Cường</span>
                 <a id="modal-btn-link" href="https://drive.google.com/drive/folders/1XkUAaMOZHj53YAadYDVIveeSEIp9nOPl?usp=drive_link" target="_blank" class="flex items-center gap-2 bg-yellow-400 text-slate-950 font-semibold px-4 py-2 rounded-full text-xs shadow-md shadow-yellow-500/10 active:scale-95 transition-transform duration-200">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    <span>Xem bài tập trên GG drive</span>
+                    <span>Xem file minh chứng</span>
                 </a>
             </div>
         </div>
@@ -593,154 +590,179 @@
         const exerciseData = {
             1: {
                 tag: "Bài tập 1 • Tuần 1",
-                title: "Bài 1: Máy tính và thiết bị ngoại vi",
-                goal: "Thành thạo kỹ năng quản trị tệp tin và tổ chức thư mục khoa học, an toàn trên hệ điều hành Windows, thiết lập nền móng cho kỹ năng lưu trữ dữ liệu chuyên nghiệp [doc6].",
-                lesson: "Việc nắm rõ cơ chế quản lý dữ liệu, ghi nhớ phím tắt dọn dẹp bộ nhớ và khôi phục giúp bảo mật thông tin tối đa, ngăn ngừa rủi ro mất mát tư liệu học thuật quan trọng [doc6].",
+                title: "Bài tập 1 - Bài 1: Máy tính và thiết bị ngoại vi",
+                goal: "Thành thạo kỹ năng quản trị hệ thống tệp tin và tổ chức thư mục khoa học, an toàn trên hệ điều hành Windows thông qua File Explorer.",
+                lesson: "Việc nắm rõ cơ chế quản lý dữ liệu, ghi nhớ phím tắt dọn dẹp bộ nhớ và khôi phục giúp bảo mật thông tin tối đa, ngăn ngừa rủi ro mất mát tư liệu học thuật quan trọng.",
                 process: [
-                    "<strong>Bước 1: Mở File Explorer:</strong> Nhấn tổ hợp phím <code>Windows + E</code> hoặc nhấp chuột vào biểu tượng thư mục màu vàng nằm trên thanh tác vụ [doc6].",
-                    "<strong>Bước 2: Truy cập ổ đĩa/thư mục:</strong> Ở cột điều hướng bên trái, nhấp chọn <code>This PC</code>, sau đó nhấp đúp vào một ổ đĩa không phải ổ hệ thống (ví dụ: ổ D: hoặc E:). Nếu thiết bị chỉ có một ổ C:, điều hướng vào thư mục <code>Documents</code> [doc6].",
-                    "<strong>Bước 3: Tạo thư mục mới:</strong> Nhấp chuột phải vào khoảng trống bất kỳ -> chọn <code>New</code> -> chọn <code>Folder</code>. Đặt tên thư mục là <code>ThucHanh_NgoPhuCuong</code> và nhấn phím <code>Enter</code> [doc6].",
-                    "<strong>Bước 4: Vào thư mục vừa tạo:</strong> Nhấp đúp chuột vào thư mục <code>ThucHanh_NgoPhuCuong</code> vừa khởi tạo thành công để bắt đầu thiết lập dữ liệu con [doc6].",
-                    "<strong>Bước 5: Tạo tệp tin văn bản:</strong> Nhấp chuột phải vào khoảng trống bên trong thư mục -> chọn <code>New</code> -> chọn <code>Text Document</code>. Đặt tên tệp mặc định là <code>GhiChu.txt</code> và nhấn <code>Enter</code> [doc6].",
-                    "<strong>Bước 6: Đổi tên tệp tin:</strong> Nhấp chuột phải vào tệp tin <code>GhiChu.txt</code> vừa tạo -> chọn <code>Rename</code>. Đổi tên tệp thành <code>GhiChuQuanTrong.txt</code> và nhấn <code>Enter</code> [doc6].",
-                    "<strong>Bước 7: Tạo thư mục con:</strong> Nhấp chuột phải vào khoảng trống -> chọn <code>New</code> -> chọn <code>Folder</code>. Đặt tên cho thư mục con mới là <code>TaiLieu</code> [doc6].",
-                    "<strong>Bước 8: Sao chép tệp tin (Copy & Paste):</strong> Nhấp chuột phải vào tệp <code>GhiChuQuanTrong.txt</code> -> chọn <code>Copy</code> (hoặc bấm <code>Ctrl + C</code>). Nhấp đúp vào thư mục con <code>TaiLieu</code>, nhấp chuột phải vào khoảng trống bên trong -> chọn <code>Paste</code> (hoặc bấm <code>Ctrl + V</code>) để sao bản [doc6].",
-                    "<strong>Bước 9: Di chuyển tệp tin (Cut & Paste):</strong> Quay lại thư mục gốc <code>ThucHanh_NgoPhuCuong</code>. Tạo một tệp mới tên là <code>DiChuyen.txt</code>. Nhấp chuột phải vào tệp này -> chọn <code>Cut</code> (hoặc bấm <code>Ctrl + X</code>). Nhấp đúp vào thư mục con <code>TaiLieu</code>, nhấp chuột phải chọn <code>Paste</code> (hoặc <code>Ctrl + V</code>). Tệp gốc sẽ biến mất ở vị trí cũ và xuất hiện ở thư mục con [doc6].",
-                    "<strong>Bước 10: Xóa tệp tin:</strong> Trong thư mục con <code>TaiLieu</code>, nhấp chuột phải vào tệp <code>GhiChuQuanTrong.txt</code> -> chọn <code>Delete</code>. Tệp tin sẽ ngay lập tức được chuyển vào Thùng rác (Recycle Bin) [doc6].",
-                    "<strong>Bước 11: Xóa vĩnh viễn:</strong> Chọn tệp <code>DiChuyen.txt</code> trong thư mục con, nhấn giữ phím <code>Shift</code> và nhấn phím <code>Delete</code>. Một hộp thoại cảnh báo sẽ xuất hiện. Nhấp chọn <code>Yes</code> để xóa vĩnh viễn tệp ra khỏi hệ thống mà không đi qua Thùng rác [doc6].",
-                    "<strong>Bước 12: Khôi phục từ Thùng rác:</strong> Tìm và mở biểu tượng <code>Recycle Bin</code> trên màn hình Desktop. Tìm tệp tin <code>GhiChuQuanTrong.txt</code> đã bị xóa ở Bước 10, nhấp chuột phải chọn <code>Restore</code> để khôi phục tệp trở về đúng vị trí ban đầu trong thư mục con [doc6]."
+                    "<strong>Bước 1: Mở File Explorer:</strong> Nhấn tổ hợp phím <code>Windows + E</code> hoặc nhấp chuột vào biểu tượng thư mục màu vàng nằm trên thanh tác vụ.",
+                    "<strong>Bước 2: Truy cập ổ đĩa/thư mục:</strong> Ở cột điều hướng bên trái, nhấp chọn <code>This PC</code>, sau đó nhấp đúp vào <code>Documents</code> (hoặc một ổ đĩa không phải ổ hệ thống nếu có).",
+                    "<strong>Bước 3: Tạo thư mục mới:</strong> Nhấp chuột phải vào khoảng trống -> chọn <code>New</code> -> chọn <code>Folder</code>. Đặt tên thư mục là <code>ThucHanh_NgoPhuCuong</code> và nhấn phím <code>Enter</code>.",
+                    "<strong>Bước 4: Vào thư mục vừa tạo:</strong> Nhấp đúp chuột vào thư mục <code>ThucHanh_NgoPhuCuong</code> vừa khởi tạo để bắt đầu thao tác dữ liệu.",
+                    "<strong>Bước 5: Tạo tệp tin văn bản:</strong> Nhấp chuột phải vào khoảng trống bên trong thư mục -> chọn <code>New</code> -> chọn <code>Text Document</code>. Đặt tên tệp là <code>GhiChu.txt</code> và nhấn <code>Enter</code>.",
+                    "<strong>Bước 6: Đổi tên tệp tin:</strong> Nhấp chuột phải vào tệp tin <code>GhiChu.txt</code> -> chọn <code>Rename</code>. Đổi tên tệp thành <code>GhiChuQuanTrong.txt</code> và nhấn <code>Enter</code>.",
+                    "<strong>Bước 7: Tạo thư mục con:</strong> Nhấp chuột phải vào khoảng trống -> chọn <code>New</code> -> chọn <code>Folder</code>. Đặt tên cho thư mục con mới là <code>TaiLieu</code>.",
+                    "<strong>Bước 8: Sao chép tệp tin (Copy & Paste):</strong> Nhấp chuột phải vào tệp <code>GhiChuQuanTrong.txt</code> -> chọn <code>Copy</code> (hoặc bấm <code>Ctrl + C</code>). Nhấp đúp vào thư mục con <code>TaiLieu</code>, nhấp chuột phải vào khoảng trống bên trong -> chọn <code>Paste</code> (hoặc bấm <code>Ctrl + V</code>) để tạo bản sao.",
+                    "<strong>Bước 9: Di chuyển tệp tin (Cut & Paste):</strong> Quay lại thư mục gốc <code>ThucHanh_NgoPhuCuong</code>. Tạo một tệp mới tên là <code>DiChuyen.txt</code>. Nhấp chuột phải vào tệp này -> chọn <code>Cut</code> (hoặc bấm <code>Ctrl + X</code>). Nhấp đúp vào thư mục con <code>TaiLieu</code>, nhấp chuột phải chọn <code>Paste</code> (hoặc <code>Ctrl + V</code>). Tệp gốc sẽ biến mất ở vị trí cũ và xuất hiện ở thư mục con.",
+                    "<strong>Bước 10: Xóa tệp tin:</strong> Trong thư mục con <code>TaiLieu</code>, nhấp chuột phải vào tệp <code>GhiChuQuanTrong.txt</code> -> chọn <code>Delete</code>. Tệp tin sẽ được chuyển vào Thùng rác (Recycle Bin).",
+                    "<strong>Bước 11: Xóa vĩnh viễn:</strong> Chọn tệp <code>DiChuyen.txt</code> trong thư mục con, nhấn giữ phím <code>Shift</code> và nhấn phím <code>Delete</code>. Một hộp thoại cảnh báo sẽ xuất hiện. Nhấp chọn <code>Yes</code> để xóa vĩnh viễn tệp ra khỏi hệ thống mà không đi qua Thùng rác.",
+                    "<strong>Bước 12: Khôi phục từ Thùng rác:</strong> Tìm và mở biểu tượng <code>Recycle Bin</code> trên màn hình Desktop. Tìm tệp tin <code>GhiChuQuanTrong.txt</code> đã bị xóa, nhấp chuột phải chọn <code>Restore</code> để khôi phục tệp trở về đúng vị trí ban đầu trong thư mục con <code>TaiLieu</code>."
                 ],
                 interactive: `
                     <div class="flex flex-col gap-4 font-mono text-xs">
-                        <div class="text-indigo-300"># Sơ đồ cấu trúc thư mục & Trình giả lập tương tác:</div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <!-- Visual Tree Structure Diagram -->
-                            <div class="p-4 bg-slate-900 rounded-xl border border-white/5 flex flex-col gap-2">
-                                <h4 class="text-yellow-300 font-bold mb-1"><i class="fa-solid fa-sitemap"></i> Cấu trúc Folder Tree</h4>
-                                <div class="flex flex-col gap-1 text-[11px] text-slate-300">
-                                    <div class="flex items-center gap-1.5"><i class="fa-solid fa-folder text-yellow-500"></i> Documents/</div>
-                                    <div class="pl-4 flex items-center gap-1.5"><i class="fa-solid fa-folder text-yellow-500"></i> ThucHanh_NgoPhuCuong/</div>
-                                    <div class="pl-8 flex items-center gap-1.5" id="tree-file-1"><i class="fa-solid fa-file-lines text-slate-400"></i> GhiChuQuanTrong.txt (gốc)</div>
-                                    <div class="pl-8 flex items-center gap-1.5"><i class="fa-solid fa-folder text-yellow-500"></i> TaiLieu/</div>
-                                    <div class="pl-12 flex items-center gap-1.5" id="tree-file-2"><i class="fa-solid fa-file-lines text-slate-400"></i> GhiChuQuanTrong.txt (sao chép)</div>
-                                    <div class="pl-12 flex items-center gap-1.5" id="tree-file-3"><i class="fa-solid fa-file-lines text-slate-400"></i> DiChuyen.txt</div>
+                        <div class="text-indigo-300"># Sơ đồ cấu trúc thư mục động (File Tree):</div>
+                        <div class="p-4 bg-slate-900 rounded-lg border border-white/10 flex flex-col gap-4">
+                            <div class="flex items-center gap-2 border-b border-white/5 pb-2 text-slate-400">
+                                <i class="fa-solid fa-network-wired text-yellow-500"></i>
+                                <span>Cấu trúc tệp tin sau khi hoàn thành 12 bước</span>
+                            </div>
+                            <div class="flex flex-col gap-2 pl-2">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-folder text-yellow-400"></i>
+                                    <span>Documents</span>
+                                </div>
+                                <div class="flex items-center gap-2 pl-6 border-l border-white/10 py-1">
+                                    <i class="fa-solid fa-folder-open text-yellow-400"></i>
+                                    <span class="text-yellow-300">ThucHanh_NgoPhuCuong</span>
+                                </div>
+                                <div class="flex items-center justify-between pl-12 border-l border-white/10 py-1 bg-white/5 rounded p-1" id="tree-doc">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-folder-open text-yellow-400"></i>
+                                        <span>TaiLieu</span>
+                                    </div>
+                                    <span class="text-[10px] bg-indigo-500/20 text-indigo-300 px-1.5 rounded">Thư mục con</span>
+                                </div>
+                                <div class="flex items-center justify-between pl-16 border-l border-white/10 py-1 bg-white/5 rounded p-1" id="tree-file-1">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-file-signature text-blue-400"></i>
+                                        <span>GhiChuQuanTrong.txt</span>
+                                    </div>
+                                    <button onclick="simulateTreeAction('delete')" class="bg-red-500/20 text-red-300 px-2 py-0.5 rounded text-[10px] hover:bg-red-500/40">Xóa</button>
+                                </div>
+                                <div class="flex items-center justify-between pl-16 border-l border-white/10 py-1 bg-white/5 rounded p-1" id="tree-file-2">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-file-arrow-up text-orange-400"></i>
+                                        <span>DiChuyen.txt</span>
+                                    </div>
+                                    <span class="text-[10px] text-slate-500">Đã cắt & dán vào</span>
                                 </div>
                             </div>
-
-                            <!-- Simulation controls -->
-                            <div class="p-4 bg-slate-900 rounded-xl border border-white/5 flex flex-col gap-3 justify-between">
-                                <h4 class="text-indigo-300 font-bold"><i class="fa-solid fa-terminal"></i> Bảng điều khiển lệnh</h4>
-                                <div class="flex flex-col gap-2" id="sim-controls">
-                                    <div class="flex justify-between items-center bg-white/5 p-2 rounded">
-                                        <span>GhiChuQuanTrong.txt (Sao chép)</span>
-                                        <button onclick="simulateAction('delete')" class="bg-red-500/20 hover:bg-red-500/40 text-red-300 px-2 py-0.5 rounded text-[10px]">Xóa</button>
-                                    </div>
-                                    <div class="flex justify-between items-center bg-white/5 p-2 rounded">
-                                        <span>DiChuyen.txt</span>
-                                        <button onclick="simulateAction('shiftDelete')" class="bg-orange-500/20 hover:bg-orange-500/40 text-orange-300 px-2 py-0.5 rounded text-[10px]">Shift+Delete</button>
-                                    </div>
-                                    <div id="recycle-bin-sim" class="hidden bg-slate-950 p-2 rounded border border-red-500/10 flex justify-between items-center">
-                                        <span class="text-red-400"><i class="fa-solid fa-trash-can"></i> GhiChuQuanTrong.txt</span>
-                                        <button onclick="simulateAction('restore')" class="bg-green-500/20 hover:bg-green-500/40 text-green-300 px-2 py-0.5 rounded text-[10px]">Restore</button>
-                                    </div>
-                                </div>
-                                <div id="explorer-log" class="text-slate-500 text-[10px] italic">Bấm các nút thao tác để giả lập lệnh Windows Explorer.</div>
+                            <div id="tree-recycle-bin" class="hidden p-3 bg-slate-950 rounded border border-red-500/20 flex items-center justify-between">
+                                <span class="text-red-400 flex items-center gap-2"><i class="fa-solid fa-trash-can"></i> Thùng rác: GhiChuQuanTrong.txt</span>
+                                <button onclick="simulateTreeAction('restore')" class="bg-green-500/20 text-green-300 px-2.5 py-1 rounded text-[10px] hover:bg-green-500/40">Khôi phục (Restore)</button>
                             </div>
                         </div>
+                        <div id="tree-log" class="text-slate-500 text-[11px] italic">Nhấp vào nút "Xóa" để chuyển tệp vào thùng rác hoặc "Khôi phục" để tái cấu trúc.</div>
                     </div>
                 `
             },
             2: {
                 tag: "Bài tập 2 • Tuần 2",
-                title: "Bài 2: Khai thác dữ liệu và thông tin",
-                goal: "Thực hiện tìm kiếm học thuật có hệ thống, thẩm định chuyên sâu độ tin cậy và mức độ đóng góp của 11 công trình khoa học trong lĩnh vực thị giác máy tính, phát hiện lỗi bảng mạch in và mô hình giải thích quyết định [doc1].",
-                lesson: "Biết cách đối chiếu đa chiều giữa cơ sở dữ liệu tạp chí chuyên ngành danh tiếng với tài liệu hướng dẫn kỹ thuật thực tế giúp xây dựng một khung lý luận khoa học vững chắc và có tính khả thi cao [doc1].",
+                title: "Bài tập 2 - Bài 2: Khai thác dữ liệu và thông tin",
+                goal: "Nghiên cứu cơ sở dữ liệu học thuật, đánh giá mức độ tin cậy và sự phù hợp của 11 tài liệu tham khảo khoa học xoay quanh đề tài phát hiện lỗi PCB bằng YOLO và Explainable AI (Grad-CAM).",
+                lesson: "Kỹ năng tìm kiếm đa dạng hóa nguồn tài liệu từ báo cáo, sách đến tài liệu chính thức giúp tạo nên một hệ thống lý thuyết vững chắc, đa góc nhìn và có tính thực tiễn cao.",
                 process: [
-                    "<strong>Bước 1: Xác định phạm vi tìm kiếm:</strong> Tập trung vào ứng dụng mô hình YOLO trong phát hiện lỗi bảng mạch in (PCB defect detection), tích hợp giải thuật Explainable AI (XAI) và tối ưu hóa triển khai biên [doc1].",
-                    "<strong>Bước 2: Tìm kiếm dữ liệu đa dạng hóa từ 4 nhóm nguồn:</strong><br>" +
-                    "• Nhóm 1: Cơ sở dữ liệu học thuật và bài báo khoa học chính quy (arXiv, CVF Open Access, PubMed, ScienceDirect) [doc1].<br>" +
-                    "• Nhóm 2: Các tạp chí uy tín chuyên ngành (Sensors, Engineering Applications of Artificial Intelligence, Smart Manufacturing) [doc1].<br>" +
-                    "• Nhóm 3: Sách chuyên khảo quốc tế lý thuyết (Manning Publications) [doc1].<br>" +
-                    "• Nhóm 4: Các nguồn mở kỹ thuật chính thống trực tuyến (Ultralytics, Edge Impulse) [doc1].",
-                    "<strong>Bước 3: Thu thập và tổng hợp 11 tài liệu tham khảo chi tiết:</strong><br>" +
-                    "• 1. <em>Tang, S. et al. (2019):</em> Công bố bộ dữ liệu DeepPCB (1500 cặp ảnh, 6 loại lỗi), đạt kết quả mAP 98.6% tại 62 FPS [doc1].<br>" +
-                    "• 2. <em>Jiang, Y. et al. (2023):</em> Lightweight Network DCR-YOLO cải tiến phát hiện lỗi trên PCB đăng tại Sensors [doc1].<br>" +
-                    "• 3. <em>Hou, Y. et al. (2025):</em> EffNet-PCB: Mạng Yolov8 siêu nhẹ và độ chính xác cao đăng tại EAAI [doc1].<br>" +
-                    "• 4. <em>Selvaraju, R.R. et al. (2017):</em> Bài báo khoa học gốc về Grad-CAM tại hội nghị ICCV [doc1].<br>" +
-                    "• 5. <em>Cação, J. et al. (2025):</em> Explainable AI trong bối cảnh chẩn đoán lỗi công nghiệp đăng tại Smart Manufacturing [doc1].<br>" +
-                    "• 6. <em>Elgendy, M. (2020):</em> Sách chuyên khảo Deep Learning cho thị giác máy tính của Manning Publications [doc1].<br>" +
-                    "• 7. <em>Ultralytics Documentation:</em> Tài liệu hỗ trợ Edge TPU và NCNN export chính thức [doc1].<br>" +
-                    "• 8. <em>Edge Impulse Documentation:</em> Hướng dẫn kỹ thuật định dạng Bounding Box thực hành [doc1].<br>" +
-                    "• 9. <em>PubMed record:</em> Cổng đối chiếu xuất bản, metadata của DCR-YOLO [doc1].<br>" +
-                    "• 10. <em>CVF Open Access:</em> Bản lưu trữ chính thức công khai của bài báo Grad-CAM gốc [doc1].<br>" +
-                    "• 11. <em>ScienceDirect record:</em> Hệ thống kiểm chứng chỉ mục học thuật của bài báo EffNet-PCB [doc1].",
-                    "<strong>Bước 4: Thẩm định độ tin cậy dựa trên 5 tiêu chí:</strong> Đánh giá chi tiết tác giả, cơ quan/nhà xuất bản, phương pháp nghiên cứu thực nghiệm, trích dẫn/ảnh hưởng học thuật và tính cập nhật [doc1]."
+                    "<strong>Bước 1: Lựa chọn chủ đề học thuật:</strong> Ứng dụng mô hình YOLO trong phát hiện lỗi bảng mạch in (PCB defect detection), tích hợp Explainable AI (XAI - Grad-CAM) và triển khai trên thiết bị biên.",
+                    "<strong>Bước 2: Tìm kiếm dữ liệu từ các nhóm nguồn:</strong> Khai thác từ cơ sở dữ liệu học thuật (arXiv, CVF Open Access, PubMed, ScienceDirect), tạp chí chuyên ngành (Sensors, Engineering Applications of Artificial Intelligence, Smart Manufacturing), sách chuyên khảo và tài liệu kỹ thuật mở của Ultralytics, Edge Impulse.",
+                    "<strong>Bước 3: Thu thập đủ 11 tài liệu tham khảo cốt lõi để thẩm định chi tiết:</strong><br>" +
+                    "• 1. <em>Tang, S. et al. (2019)</em> – 'Online PCB Defect Detector On A New PCB Defect Dataset' (Mô tả bộ dữ liệu DeepPCB gồm 1.500 cặp ảnh, 6 loại lỗi lớn, đạt 98,6% mAP ở tốc độ 62 FPS) [arXiv].<br>" +
+                    "• 2. <em>Jiang, Y. et al. (2023)</em> – 'Lightweight Network DCR-YOLO for Surface Defect Detection on Printed Circuit Boards' (Cải tiến YOLO siêu nhẹ phù hợp cho thiết bị biên, công bố trên Sensors) [Sensors].<br>" +
+                    "• 3. <em>Hou, Y. et al. (2025)</em> – 'EffNet-PCB: a lightweight and high-accuracy framework based on YOLOv8' (Công bố trên Engineering Applications of Artificial Intelligence, tối ưu hóa độ chính xác phát hiện lỗi nhỏ dựa trên nền tảng YOLOv8).<br>" +
+                    "• 4. <em>Selvaraju, R.R. et al. (2017)</em> – 'Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization' (Bài báo gốc về Grad-CAM tại hội nghị ICCV, giúp làm rõ cơ chế hoạt động của mạng nơ-ron).<br>" +
+                    "• 5. <em>Cação, J. et al. (2025)</em> – 'Explainable AI for industrial fault diagnosis: A systematic review' (Tạp chí Smart Manufacturing, cung cấp bài tổng quan hệ thống hóa ứng dụng XAI trong công nghiệp).<br>" +
+                    "• 6. <em>Elgendy, M. (2020)</em> – Sách chuyên khảo 'Deep Learning for Vision Systems' (NXB Manning Publications, cung cấp hệ thống lý thuyết chuẩn mực về thị giác máy tính).<br>" +
+                    "• 7. <em>Ultralytics Documentation</em> – Hướng dẫn kỹ thuật chính thức về Edge TPU export và NCNN export.<br>" +
+                    "• 8. <em>Edge Impulse Documentation</em> – Tài liệu hướng dẫn 'Object detection with bounding boxes' trên thiết bị biên.<br>" +
+                    "• 9. <em>PubMed record</em> – Dữ liệu đối chiếu xuất bản và kiểm chứng chéo của bài báo DCR-YOLO.<br>" +
+                    "• 10. <em>CVF Open Access bản chính thức</em> – Bản in chính thức của bài báo khoa học Grad-CAM để đảm bảo sử dụng nguồn văn bản gốc.<br>" +
+                    "• 11. <em>ScienceDirect record</em> – Bản lưu trữ chính thức và chỉ số đo lường học thuật của bài báo EffNet-PCB.",
+                    "<strong>Bước 4: Thẩm định nghiêm ngặt dựa trên 5 tiêu chí:</strong> Phân tích uy tín tác giả, cơ quan xuất bản, phương pháp nghiên cứu thực nghiệm, mức độ trích dẫn học thuật và tính cập nhật."
                 ],
                 interactive: `
                     <div class="flex flex-col gap-4 font-mono text-xs">
-                        <div class="text-indigo-300"># Trình thẩm định chi tiết 11 tài liệu học thuật:</div>
-                        <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
-                            <!-- Left: List of papers -->
-                            <div class="md:col-span-5 max-h-64 overflow-y-auto border border-white/5 rounded-lg bg-slate-900/50">
-                                <div onclick="reviewPaper(1)" class="p-2 border-b border-white/5 cursor-pointer hover:bg-white/5 text-[11px] text-yellow-300">1. Tang, S. (2019) - DeepPCB</div>
-                                <div onclick="reviewPaper(2)" class="p-2 border-b border-white/5 cursor-pointer hover:bg-white/5 text-[11px]">2. Jiang, Y. (2023) - DCR-YOLO</div>
-                                <div onclick="reviewPaper(3)" class="p-2 border-b border-white/5 cursor-pointer hover:bg-white/5 text-[11px]">3. Hou, Y. (2025) - EffNet-PCB</div>
-                                <div onclick="reviewPaper(4)" class="p-2 border-b border-white/5 cursor-pointer hover:bg-white/5 text-[11px]">4. Selvaraju, R.R. (2017) - Grad-CAM</div>
-                                <div onclick="reviewPaper(5)" class="p-2 border-b border-white/5 cursor-pointer hover:bg-white/5 text-[11px]">5. Cação, J. (2025) - XAI Fault</div>
-                                <div onclick="reviewPaper(6)" class="p-2 border-b border-white/5 cursor-pointer hover:bg-white/5 text-[11px]">6. Elgendy, M. (2020) - DL Book</div>
-                                <div onclick="reviewPaper(7)" class="p-2 border-b border-white/5 cursor-pointer hover:bg-white/5 text-[11px]">7. Ultralytics Docs - Export</div>
-                                <div onclick="reviewPaper(8)" class="p-2 border-b border-white/5 cursor-pointer hover:bg-white/5 text-[11px]">8. Edge Impulse Docs - BBox</div>
-                                <div onclick="reviewPaper(9)" class="p-2 border-b border-white/5 cursor-pointer hover:bg-white/5 text-[11px]">9. PubMed Record - Meta</div>
-                                <div onclick="reviewPaper(10)" class="p-2 border-b border-white/5 cursor-pointer hover:bg-white/5 text-[11px]">10. CVF Open Access - Grad</div>
-                                <div onclick="reviewPaper(11)" class="p-2 border-b border-white/5 cursor-pointer hover:bg-white/5 text-[11px]">11. ScienceDirect - EffNet</div>
-                            </div>
-                            <!-- Right: Detailed Evaluation -->
-                            <div class="md:col-span-7 p-4 bg-slate-900 rounded-lg border border-white/10" id="paper-review-panel">
-                                Nhấp chọn tài liệu học thuật ở cột bên trái để hiển thị báo cáo thẩm định chi tiết (Nhà xuất bản, Phương pháp, Độ tin cậy và Chỉ mục).
-                            </div>
+                        <div class="text-indigo-300"># Bảng tra cứu & Thẩm định 11 nguồn học thuật:</div>
+                        <div class="max-h-60 overflow-y-auto border border-white/10 rounded-lg">
+                            <table class="w-full text-left border-collapse">
+                                <thead class="bg-slate-900 sticky top-0 text-slate-400">
+                                    <tr>
+                                        <th class="p-2 border-b border-white/10">Tài liệu tham khảo (11 nguồn)</th>
+                                        <th class="p-2 border-b border-white/10">Độ tin cậy</th>
+                                        <th class="p-2 border-b border-white/10">Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-slate-300">
+                                    <tr class="hover:bg-white/5">
+                                        <td class="p-2 border-b border-white/5 truncate max-w-[250px]">Tang, S. et al. (2019) - DeepPCB</td>
+                                        <td class="p-2 border-b border-white/5 text-green-400">Rất cao (Nền tảng)</td>
+                                        <td class="p-2 border-b border-white/5"><button onclick="viewDocEvaluation(1)" class="text-yellow-300 hover:underline">Chi tiết</button></td>
+                                    </tr>
+                                    <tr class="hover:bg-white/5">
+                                        <td class="p-2 border-b border-white/5 truncate max-w-[250px]">Jiang, Y. et al. (2023) - DCR-YOLO</td>
+                                        <td class="p-2 border-b border-white/5 text-green-400">Rất cao (Sensors)</td>
+                                        <td class="p-2 border-b border-white/5"><button onclick="viewDocEvaluation(2)" class="text-yellow-300 hover:underline">Chi tiết</button></td>
+                                    </tr>
+                                    <tr class="hover:bg-white/5">
+                                        <td class="p-2 border-b border-white/5 truncate max-w-[250px]">Hou, Y. et al. (2025) - EffNet-PCB</td>
+                                        <td class="p-2 border-b border-white/5 text-green-400">Rất cao (EAAI)</td>
+                                        <td class="p-2 border-b border-white/5"><button onclick="viewDocEvaluation(3)" class="text-yellow-300 hover:underline">Chi tiết</button></td>
+                                    </tr>
+                                    <tr class="hover:bg-white/5">
+                                        <td class="p-2 border-b border-white/5 truncate max-w-[250px]">Selvaraju, R.R. et al. (2017) - Grad-CAM</td>
+                                        <td class="p-2 border-b border-white/5 text-green-400">Rất cao (ICCV)</td>
+                                        <td class="p-2 border-b border-white/5"><button onclick="viewDocEvaluation(4)" class="text-yellow-300 hover:underline">Chi tiết</button></td>
+                                    </tr>
+                                    <tr class="hover:bg-white/5">
+                                        <td class="p-2 border-b border-white/5 truncate max-w-[250px]">Ultralytics Documentation (Edge TPU)</td>
+                                        <td class="p-2 border-b border-white/5 text-indigo-300">Khá cao (Technical)</td>
+                                        <td class="p-2 border-b border-white/5"><button onclick="viewDocEvaluation(5)" class="text-yellow-300 hover:underline">Chi tiết</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="doc-evaluation-detail" class="p-4 bg-slate-900 rounded-lg border border-white/10 min-h-[80px] flex items-center justify-center text-slate-400">
+                            Nhấp vào nút "Chi tiết" ở bất kỳ dòng tài liệu nào phía trên để xem báo cáo thẩm định chi tiết dựa trên 5 tiêu chuẩn vàng.
                         </div>
                     </div>
                 `
             },
             3: {
                 tag: "Bài tập 3 • Tuần 3",
-                title: "Bài 3: Tổng quan về trí tuệ nhân tạo",
-                goal: "Xây dựng và so sánh cấu trúc các prompt 3 cấp độ (Cơ bản, Cải tiến, Nâng cao) của 3 tác vụ học tập trọng tâm, nhằm làm nổi bật phương pháp prompt engineering có kiểm soát [doc2].",
-                lesson: "Kỹ năng làm chủ công nghệ nằm ở việc mô tả chi tiết vai trò (role), bối cảnh (context), đối tượng (audience) và giới hạn (constraint) trong câu lệnh gửi đi thay vì giao phó toàn bộ một cách mơ hồ [doc2].",
+                title: "Bài tập 3 - Bài 3: Tổng quan về trí tuệ nhân tạo",
+                goal: "Xây dựng và so sánh các bộ prompt 3 cấp độ (Cơ bản, Cải tiến, Nâng cao) cho 3 tác vụ học tập điển hình, làm nổi bật kỹ năng Prompt Engineering có cấu trúc và vai trò cụ thể.",
+                lesson: "Kỹ thuật viết prompt có cấu trúc chặt chẽ, ràng buộc định dạng rõ ràng và chỉ định vai trò cụ thể giúp AI đưa ra câu trả lời chính xác, hữu ích hơn gấp nhiều lần so với các câu lệnh chung chung.",
                 process: [
-                    "<strong>Bước 1: Lựa chọn và phân tích 3 tác vụ học tập:</strong><br>" +
-                    "• Tác vụ 1: Tóm tắt bài đọc hoặc tài liệu học thuật phức tạp [doc2].<br>" +
-                    "• Tác vụ 2: Giải thích khái niệm kinh tế học trừu tượng (Chi phí cơ hội) [doc2].<br>" +
-                    "• Tác vụ 3: Tạo đề thi câu hỏi ôn tập tự đánh giá năng lực (về Chính sách tài khóa) [doc2].",
-                    "<strong>Bước 2: Xây dựng chi tiết 3 cấp độ Prompt cho từng tác vụ:</strong><br>" +
-                    "• <em>Cơ bản:</em> Lệnh ngắn, chung chung, dễ khiến AI đưa ra kết quả lan man [doc2].<br>" +
-                    "• <em>Cải tiến:</em> Thiết lập thông số định lượng cụ thể (độ dài 200 từ, trắc nghiệm và tự luận kèm đáp án rõ ràng) [doc2].<br>" +
-                    "• <em>Nâng cao:</em> Áp dụng Role-prompting (trợ lý học thuật, giảng viên), chỉ định đối tượng sinh viên năm nhất, quy định định dạng hiển thị chi tiết từng phần và ép tư duy từng bước [doc2].",
-                    "<strong>Bước 3: Nhập dữ liệu và so sánh kết quả thực nghiệm:</strong> Đánh giá mức độ phản hồi của ChatGPT để rút ra các nguyên tắc tối ưu hóa câu lệnh [doc2]."
+                    "<strong>Bước 1: Phân tích 3 tác vụ học tập trọng tâm:</strong><br>" +
+                    "• Tác vụ 1: Tóm tắt bài đọc học thuật phức tạp.<br>" +
+                    "• Tác vụ 2: Giải thích khái niệm kinh tế học hóc búa (Chi phí cơ hội).<br>" +
+                    "• Tác vụ 3: Tạo bộ câu hỏi ôn tập chất lượng cao (về Chính sách tài khóa).",
+                    "<strong>Bước 2: Phát triển bộ prompt 3 cấp độ chi tiết:</strong><br>" +
+                    "• <em>Prompt Cơ bản:</em> Là các câu lệnh ngắn, thiếu bối cảnh và cấu trúc định hình.<br>" +
+                    "• <em>Prompt Cải tiến:</em> Bổ sung các thông số giới hạn (ví dụ: giới hạn số từ, yêu cầu trắc nghiệm và tự luận kèm đáp án).<br>" +
+                    "• <em>Prompt Nâng cao:</em> Áp dụng triệt để kỹ năng prompt engineering: role prompting (đóng vai chuyên gia/giảng viên), chỉ định đối tượng tiếp nhận (sinh viên năm nhất), quy định cấu trúc hiển thị nghiêm ngặt và yêu cầu tư duy từng bước.",
+                    "<strong>Bước 3: Chạy thực nghiệm trên ChatGPT:</strong> Đối chiếu trực tiếp chất lượng đầu ra của các phiên bản prompt để đúc rút quy luật viết câu lệnh tối ưu."
                 ],
                 interactive: `
                     <div class="flex flex-col gap-4 font-mono text-xs">
-                        <div class="text-indigo-300"># Trình so sánh Prompt 3 cấp độ và kết quả:</div>
-                        <div class="flex flex-wrap gap-2">
-                            <button onclick="changePromptTask(1)" class="task-btn bg-yellow-400/20 text-yellow-300 border border-yellow-300/30 px-3 py-1 rounded">Tác vụ 1: Tóm tắt</button>
-                            <button onclick="changePromptTask(2)" class="task-btn bg-slate-900 text-slate-300 px-3 py-1 rounded">Tác vụ 2: Giải thích</button>
-                            <button onclick="changePromptTask(3)" class="task-btn bg-slate-900 text-slate-300 px-3 py-1 rounded">Tác vụ 3: Đề ôn tập</button>
+                        <div class="text-indigo-300"># Trình so sánh Prompt 3 cấp độ:</div>
+                        <div class="flex gap-2">
+                            <button onclick="switchPromptTask(1)" class="prompt-task-btn bg-yellow-400/20 text-yellow-300 border border-yellow-300/30 px-3 py-1 rounded">Tác vụ 1: Tóm tắt</button>
+                            <button onclick="switchPromptTask(2)" class="prompt-task-btn bg-slate-900 text-slate-300 px-3 py-1 rounded">Tác vụ 2: Giải thích</button>
+                            <button onclick="switchPromptTask(3)" class="prompt-task-btn bg-slate-900 text-slate-300 px-3 py-1 rounded">Tác vụ 3: Tạo câu hỏi</button>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                            <div onclick="selectLevel('basic')" class="p-3 bg-slate-900 rounded-lg border border-white/5 cursor-pointer hover:border-red-400/30">
-                                <span class="text-red-400 font-bold">1. Prompt Cơ bản</span>
-                                <p id="p-basic-short" class="text-[10px] text-slate-400 mt-1 truncate">Đang tải...</p>
+                            <div class="p-3 bg-slate-900/50 rounded-xl border border-white/5 cursor-pointer hover:border-red-400/30" onclick="selectPromptLevel('basic')">
+                                <h4 class="text-red-400 font-bold mb-1">Cấp độ: Cơ bản</h4>
+                                <p id="prompt-basic-text" class="text-[11px] text-slate-400 truncate">Đang tải dữ liệu...</p>
                             </div>
-                            <div onclick="selectLevel('improved')" class="p-3 bg-slate-900 rounded-lg border border-white/5 cursor-pointer hover:border-yellow-400/30">
-                                <span class="text-yellow-400 font-bold">2. Prompt Cải tiến</span>
-                                <p id="p-improved-short" class="text-[10px] text-slate-400 mt-1 truncate">Đang tải...</p>
+                            <div class="p-3 bg-slate-900/50 rounded-xl border border-white/5 cursor-pointer hover:border-yellow-400/30" onclick="selectPromptLevel('improved')">
+                                <h4 class="text-yellow-400 font-bold mb-1">Cấp độ: Cải tiến</h4>
+                                <p id="prompt-improved-text" class="text-[11px] text-slate-400 truncate">Đang tải dữ liệu...</p>
                             </div>
-                            <div onclick="selectLevel('advanced')" class="p-3 bg-slate-900 rounded-lg border border-white/5 cursor-pointer hover:border-green-400/30">
-                                <span class="text-green-400 font-bold">3. Prompt Nâng cao</span>
-                                <p id="p-advanced-short" class="text-[10px] text-slate-400 mt-1 truncate">Đang tải...</p>
+                            <div class="p-3 bg-slate-900/50 rounded-xl border border-white/5 cursor-pointer hover:border-green-400/30" onclick="selectPromptLevel('advanced')">
+                                <h4 class="text-green-400 font-bold mb-1">Cấp độ: Nâng cao</h4>
+                                <p id="prompt-advanced-text" class="text-[11px] text-slate-400 truncate">Đang tải dữ liệu...</p>
                             </div>
                         </div>
-                        <div class="p-4 bg-slate-900 rounded-xl border border-white/10" id="prompt-playground-box">
+                        <div class="p-4 bg-slate-900 rounded-lg border border-white/10" id="prompt-playground-result">
                             Nhấp chọn cấp độ prompt ở trên để trải nghiệm so sánh trực quan câu lệnh và kết quả phản hồi của AI.
                         </div>
                     </div>
@@ -748,45 +770,49 @@
             },
             4: {
                 tag: "Bài tập 4 • Tuần 4",
-                title: "Bài 4: Giao tiếp và hợp tác trong môi trường số",
-                goal: "Xây dựng và số hóa quy trình làm việc nhóm từ xa dựa trên bộ 4 công cụ: Trello, Google Docs, Drive và Discord; khắc phục xung đột định dạng tệp tin và thiết lập hệ thống lưu trữ đồng bộ [doc3].",
-                lesson: "Kỷ luật đặt tên tệp, phân cấp thư mục khoa học cùng sự chủ động cập nhật Kanban của các thành viên chính là chìa khóa tháo gỡ rào cản giao tiếp và nâng cao hiệu suất làm việc nhóm [doc3].",
+                title: "Bài tập 4 - Bài 4: Giao tiếp và hợp tác trong môi trường số",
+                goal: "Thiết lập cơ chế cộng tác từ xa liền mạch, kiểm soát tiến độ và phân vai rõ ràng khi làm việc nhóm dựa trên bộ 4 công cụ: Trello, Google Docs, Drive và Discord.",
+                lesson: "Sự đồng bộ về ý thức kỷ luật của các thành viên, tuân thủ đúng quy tắc đặt tên tệp và cập nhật tiến độ liên tục là yếu tố quyết định sự thành bại của một dự án số.",
                 process: [
-                    "<strong>Quy trình thực hiện dự án nhóm trong 1 tuần:</strong><br>" +
-                    "• <strong>Quản lý dự án với Trello:</strong> Lập bảng tiến độ chung chia cột: <code>To do</code> (Cần làm), <code>Doing</code> (Đang làm), <code>Review</code> (Kiểm duyệt), <code>Done</code> (Hoàn thành). Mỗi thành viên được giao thẻ công việc kèm mô tả và deadline cụ thể [doc3].<br>" +
-                    "• <strong>Cộng tác viết nội dung trên Google Docs:</strong> Soạn thảo đồng thời bài báo cáo. Sử dụng tính năng <code>Comment</code> để tranh luận, đề xuất rút gọn câu từ hoặc bổ sung ví dụ minh họa mà không đè trực tiếp lên bài viết của người khác [doc3].<br>" +
-                    "• <strong>Lưu trữ có cấu trúc với Google Drive:</strong> Tổ chức thư mục lưu trữ khoa học chia thành 5 phân nhánh:<br>" +
-                    "  1. <code>01_Tài liệu tham khảo</code><br>" +
-                    "  2. <code>02_Nội dung bài viết</code><br>" +
-                    "  3. <code>03_Hình ảnh minh chứng</code><br>" +
-                    "  4. <code>04_Slide thuyết trình</code><br>" +
-                    "  5. <code>05_Bản cuối cùng</code> [doc3].<br>" +
-                    "• <strong>Quy định quy chuẩn đặt tên tệp thống nhất:</strong> <code>Tên nhóm_Nội dung_Ngày cập nhật_Phiên bản</code> (Ví dụ: <code>Nhom3_NoiDungChinh_1307_v2.docx</code>; <code>Nhom3_SlideThuyetTrinh_1507_Final.pptx</code>) [doc3].<br>" +
-                    "• <strong>Đồng bộ liên lạc bằng Discord:</strong> Nhóm thảo luận, nhắc nhở deadline và ghim lại các thông tin chỉ mục quan trọng [doc3].<br>" +
-                    "• <strong>Thách thức & Giải pháp xử lý:</strong> Giải quyết việc phân chia công việc mập mờ bằng việc mô tả chi tiết trên Trello; khắc phục lỗi giọng văn rời rạc bằng cách thống nhất bố cục trước khi làm và biên tập tổng thể; chuẩn hóa cây thư mục Drive để xóa bỏ tình trạng hỗn loạn phiên bản tệp nộp nhóm [doc3]."
+                    "<strong>Lập kế hoạch & Quản trị tiến độ (Trello):</strong> Tạo bảng Kanban chung với các cột: <code>To do</code> (Cần làm), <code>Doing</code> (Đang làm), <code>Review</code> (Đang duyệt) và <code>Done</code> (Đã xong). Bản thân mình chịu trách nhiệm chính: Tìm tài liệu học tập về AI (Hoàn thành ngày 2), Viết phần lợi ích đối với sinh viên (Hoàn thành ngày 4), Chỉnh sửa nội dung Google Docs (Hoàn thành ngày 5), Sắp xếp tài liệu Drive (Hoàn thành ngày 6), Góp ý slide cuối cùng (Hoàn thành ngày 7).",
+                    "<strong>Soạn thảo cộng tác thời gian thực (Google Docs):</strong> Cả nhóm cùng thảo luận và viết bài trực tiếp trên một tài liệu duy nhất. Mình sử dụng tính năng <code>Comment</code> để đề xuất sửa lỗi diễn đạt, chỉnh sửa bố cục hoặc đóng góp ý kiến mang tính xây dựng thay vì ghi đè trực tiếp lên bài làm của thành viên khác.",
+                    "<strong>Tổ chức tài nguyên khoa học (Google Drive):</strong> Thiết lập cấu trúc lưu trữ 5 thư mục con chuẩn hóa: <code>01_Tài liệu tham khảo</code>, <code>02_Nội dung bài viết</code>, <code>03_Hình ảnh minh chứng</code>, <code>04_Slide thuyết trình</code>, <code>05_Bản cuối cùng</code>. Thống nhất quy tắc đặt tên tệp: <code>Tên nhóm_Nội dung_Ngày cập nhật_Phiên bản</code> (Ví dụ: <code>Nhom3_NoiDungChinh_1307_v2.docx</code>).",
+                    "<strong>Kết nối thời gian thực (Discord):</strong> Thiết lập kênh giao tiếp nhanh để thảo luận nóng, nhắc nhở deadline và ghim lại các thông báo quan trọng của nhóm.",
+                    "<strong>Thách thức & Giải pháp thực tế:</strong> Khắc phục tình trạng phân chia công việc mập mờ bằng thẻ Trello chi tiết; kiểm soát sự rời rạc của giọng văn nhóm bằng dàn ý thống nhất và biên tập lại; sắp xếp lại Drive ngăn nắp để tránh nhầm lẫn các phiên bản dự án."
                 ],
                 interactive: `
                     <div class="flex flex-col gap-4 font-mono text-xs">
-                        <div class="text-indigo-300"># Trình mô phỏng tiến trình dự án nhóm (7 Ngày thực hiện):</div>
-                        <div class="flex gap-1.5 overflow-x-auto pb-2">
-                            <button onclick="timelineGo(1)" class="time-btn bg-yellow-400/20 text-yellow-300 px-2.5 py-1 rounded">Ngày 1-2</button>
-                            <button onclick="timelineGo(3)" class="time-btn bg-slate-900 text-slate-300 px-2.5 py-1 rounded">Ngày 3-4</button>
-                            <button onclick="timelineGo(5)" class="time-btn bg-slate-900 text-slate-300 px-2.5 py-1 rounded">Ngày 5-6</button>
-                            <button onclick="timelineGo(7)" class="time-btn bg-slate-900 text-slate-300 px-2.5 py-1 rounded">Ngày 7</button>
-                        </div>
+                        <div class="text-indigo-300"># Bảng mô phỏng Kanban Trello & Drive của nhóm:</div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <!-- Left: Live Kanban Preview -->
-                            <div class="p-3 bg-slate-900 rounded-lg border border-white/5">
-                                <h4 class="text-yellow-300 font-bold mb-2"><i class="fa-brands fa-trello"></i> Trello Simulation</h4>
-                                <div class="flex flex-col gap-2" id="live-trello-tasks">
-                                    <!-- Dynamic -->
+                            <!-- Mini Trello -->
+                            <div class="p-3 bg-slate-900 rounded-xl border border-white/5">
+                                <h4 class="text-yellow-400 font-bold mb-2 flex items-center gap-1"><i class="fa-brands fa-trello"></i> Kanban Board</h4>
+                                <div class="flex flex-col gap-2">
+                                    <div class="p-2 bg-white/5 rounded">
+                                        <span class="text-[10px] bg-yellow-500/20 text-yellow-300 px-1.5 py-0.5 rounded">To do</span>
+                                        <p class="text-[11px] mt-1 text-slate-300">Hoàn thiện slide thuyết trình</p>
+                                    </div>
+                                    <div class="p-2 bg-white/5 rounded">
+                                        <span class="text-[10px] bg-indigo-500/20 text-indigo-300 px-1.5 py-0.5 rounded">Doing</span>
+                                        <p class="text-[11px] mt-1 text-slate-300">Viết phần lợi ích đối với sinh viên</p>
+                                    </div>
+                                    <div class="p-2 bg-white/5 rounded">
+                                        <span class="text-[10px] bg-green-500/20 text-green-300 px-1.5 py-0.5 rounded">Done</span>
+                                        <p class="text-[11px] mt-1 text-slate-300">Tìm kiếm tài liệu học tập AI</p>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- Right: Discord Chat Logs -->
-                            <div class="p-3 bg-slate-900 rounded-lg border border-white/5 flex flex-col justify-between min-h-[150px]">
-                                <h4 class="text-indigo-400 font-bold mb-2"><i class="fa-brands fa-discord"></i> Discord Activity Logs</h4>
-                                <div id="live-discord-chat" class="text-slate-400 text-[10px] leading-relaxed flex-grow flex flex-col justify-end gap-1.5">
-                                    <!-- Dynamic -->
+                            <!-- Mini Drive -->
+                            <div class="p-3 bg-slate-900 rounded-xl border border-white/5">
+                                <h4 class="text-indigo-300 font-bold mb-2 flex items-center gap-1"><i class="fa-brands fa-google-drive"></i> Folder Tree</h4>
+                                <div class="flex flex-col gap-1 text-[11px] text-slate-400">
+                                    <div>📁 Dự án nhóm_AI trong học tập</div>
+                                    <div class="pl-3">├── 📁 01_Tài liệu tham khảo</div>
+                                    <div class="pl-3">├── 📁 02_Nội dung bài viết</div>
+                                    <div class="pl-6">└── 📄 Nhom3_NoiDungChinh_1307_v2.docx</div>
+                                    <div class="pl-3">├── 📁 03_Hình ảnh minh chứng</div>
+                                    <div class="pl-3">└── 📁 04_Slide thuyết trình</div>
+                                    <div class="pl-6">└── 📄 Nhom3_SlideThuyetTrinh_1507_Final.pptx</div>
                                 </div>
                             </div>
                         </div>
@@ -795,55 +821,40 @@
             },
             5: {
                 tag: "Bài tập 5 • Tuần 5",
-                title: "Bài 5: Sáng tạo nội dung số",
-                goal: "Thiết kế một sản phẩm truyền thông trực quan (Infographic) \"5 nguyên tắc sử dụng AI hiệu quả trong học tập\" bằng việc phối hợp chặt chẽ, tối ưu hóa dải màu, font chữ và căn đều bố cục giữa ChatGPT, DALL-E và Canva AI [doc4].",
-                lesson: "AI chỉ giữ vai trò hỗ trợ 40% ở khâu phác thảo thô sơ ban đầu. 60% chất lượng và chiều sâu học thuật cuối cùng phải do bàn tay con người tinh chỉnh, sắp xếp và kiểm soát chặt chẽ để thể hiện dấu ấn cá nhân tay nghề [doc4].",
+                title: "Bài tập 5 - Bài 5: Sáng tạo nội dung số",
+                goal: "Phối hợp nhịp nhàng các công cụ Generative AI đa phương tiện (văn bản, hình ảnh, bố cục) dưới sự làm chủ và chỉnh sửa 60% của con người để thiết kế một sản phẩm truyền thông trực quan.",
+                lesson: "AI đóng vai trò như một cộng sự hỗ trợ tối ưu hóa quy trình khởi đầu từ một trang giấy trắng, nhưng chính tư duy chọn lọc, sự tỉ mỉ trong chỉnh sửa thủ công của con người mới là yếu tố quyết định tính thẩm mỹ và chiều sâu của sản phẩm.",
                 process: [
-                    "<strong>Quy trình sáng tạo và tinh chỉnh nội dung chi tiết:</strong><br>" +
-                    "• <strong>Thiết lập kịch bản và nội dung với ChatGPT:</strong><br>" +
-                    "  - <em>Prompt 1:</em> 'Hãy đề xuất nội dung cho một infographic với chủ đề ‘5 nguyên tắc sử dụng AI hiệu quả trong học tập’ dành cho sinh viên đại học. Nội dung cần ngắn gọn, dễ hiểu, có tiêu đề chính, 5 ý chính và mô tả ngắn cho từng ý' -> AI đưa ra dàn ý tốt nhưng phần giải thích còn dài dòng, chưa phù hợp đưa lên ảnh [doc4].<br>" +
-                    "  - <em>Prompt 2 (Tinh gọn):</em> 'Hãy rút gọn nội dung trên thành dạng câu ngắn, phù hợp để đưa vào infographic. Mỗi nguyên tắc chỉ gồm một tiêu đề ngắn và một câu giải thích dưới 15 từ' -> Output tinh gọn hoàn chỉnh cho 5 mục cốt lõi (Hỏi rõ ràng, Kiểm chứng thông tin, Không sao chép máy móc, Dùng AI để gợi ý, Bảo vệ dữ liệu cá nhân) [doc4].<br>" +
-                    "• <strong>Vẽ tranh minh họa cùng DALL-E:</strong><br>" +
-                    "  - <em>Prompt 1:</em> 'Create a clean modern illustration of a university student using AI tools for studying...' -> Đầu ra bị rối rắm, nhiều chi tiết vụn vặt và không hòa hợp với phong cách phẳng [doc4].<br>" +
-                    "  - <em>Prompt 2 (Tối giản):</em> 'Create a simpler flat illustration of a student learning with AI on a laptop. Minimal background, clean shapes, soft blue and white color palette, no text, suitable for the header of an infographic' -> Output hoàn hảo cho việc chèn làm biểu ngữ đầu trang [doc4].<br>" +
-                    "• <strong>Kiến tạo khung bố cục với Canva AI:</strong><br>" +
-                    "  - <em>Prompt Canva AI:</em> 'Tạo một infographic tiếng Việt với chủ đề ‘5 nguyên tắc sử dụng AI hiệu quả trong học tập’. Phong cách hiện đại, phù hợp với sinh viên đại học, màu xanh dương và trắng, bố cục rõ ràng...' -> Canvas cho bộ màu thô, khoảng cách chữ bị xô lệch [doc4].<br>" +
-                    "• <strong>Quá trình chỉnh sửa thủ công (Con người can thiệp 60%):</strong><br>" +
-                    "  - Tiến hành rút gọn các khối chữ để ảnh thông thoáng.<br>" +
-                    "  - Thay đổi toàn bộ font chữ thành kiểu dễ đọc, không bị lỗi gõ tiếng Việt.<br>" +
-                    "  - Chỉnh dải màu nền dịu mắt làm nổi bật các khối thông tin.<br>" +
-                    "  - Sắp xếp lại biểu tượng icon: kính lúp đại diện cho 'Kiểm chứng thông tin', ổ khóa đại diện cho 'Bảo vệ dữ liệu cá nhân', sắp xếp cân đối các khối hình học [doc4, doc5]."
+                    "<strong>Khâu lên ý tưởng nội dung với ChatGPT:</strong><br>" +
+                    "• <em>Prompt 1:</em> 'Hãy đề xuất nội dung cho một infographic với chủ đề ‘5 nguyên tắc sử dụng AI hiệu quả trong học tập’ dành cho sinh viên đại học. Nội dung cần ngắn gọn, dễ hiểu, có tiêu đề chính, 5 ý chính và mô tả ngắn cho từng ý.' -> Đầu ra ban đầu chi tiết nhưng quá dài dòng để đưa vào bản thiết kế.<br>" +
+                    "• <em>Prompt 2 (Rút gọn):</em> 'Hãy rút gọn nội dung trên thành dạng câu ngắn, phù hợp để đưa vào infographic. Mỗi nguyên tắc chỉ gồm một tiêu đề ngắn và một câu giải thích dưới 15 từ.' -> Cho ra 5 nguyên tắc sắc bén (Hỏi rõ ràng, Kiểm chứng thông tin, Không sao chép máy móc, Dùng AI để gợi ý, Bảo vệ dữ liệu).",
+                    "<strong>Khâu tạo hình minh họa với DALL-E:</strong><br>" +
+                    "• <em>Prompt 1:</em> 'Create a clean modern illustration of a university student using AI tools for studying...' -> Đầu ra bị nhiều chi tiết thừa, rối rắm.<br>" +
+                    "• <em>Prompt 2 (Tinh chỉnh):</em> 'Create a simpler flat illustration of a student learning with AI on a laptop. Minimal background, clean shapes, soft blue and white color palette, no text, suitable for the header...' -> Cho ra hình ảnh phẳng flat-vector thanh lịch hoàn hảo làm header.",
+                    "<strong>Khâu thiết lập bố cục với Canva AI:</strong> Nhập nội dung và chạy prompt thiết kế infographic dọc tiếng Việt phối màu trắng - xanh dương tối giản, thu về bố cục khung cơ bản.",
+                    "<strong>Khâu can thiệp thủ công 60% của cá nhân:</strong> Tiến hành rút chữ trong khối thiết kế, đổi font chữ Việt hóa dễ đọc, căn dải màu nền, ghép ảnh DALL-E vào đầu trang, thay thế icon phù hợp (kính lúp cho kiểm chứng, ổ khóa cho bảo mật) và bổ sung thông điệp kết luận: 'AI là công cụ hỗ trợ học tập, không phải người học thay bạn.'"
                 ],
                 interactive: `
                     <div class="flex flex-col gap-4 font-mono text-xs">
-                        <div class="text-indigo-300"># Quy trình đồng sáng tạo & Chỉnh sửa tay nghề (40% AI vs 60% Con người):</div>
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-center">
-                            <div class="p-2 bg-slate-900 rounded border border-white/5">
-                                <span class="text-yellow-300 font-bold">1. Kịch bản chữ</span>
-                                <p class="text-[10px] text-slate-400 mt-1">ChatGPT đề xuất 5 mục cốt lõi [doc4].</p>
+                        <div class="text-indigo-300"># Ma trận phân cấp vai trò của các công cụ AI:</div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <div class="p-3 bg-slate-900 rounded-xl border border-white/5">
+                                <h4 class="text-yellow-400 font-bold mb-1 flex items-center gap-1"><i class="fa-solid fa-message"></i> ChatGPT</h4>
+                                <p class="text-[11px] text-slate-400"><strong>Điểm mạnh:</strong> Lên kịch bản, tóm tắt, rút gọn ý chính cực nhanh.</p>
+                                <p class="text-[11px] text-slate-400 mt-1"><strong>Hạn chế:</strong> Có thể viết dài dòng nếu thiếu ràng buộc câu chữ.</p>
+                                <p class="text-[11px] text-yellow-300 mt-2 font-semibold">Vai trò: Trợ lý xây dựng nội dung</p>
                             </div>
-                            <div class="p-2 bg-slate-900 rounded border border-white/5">
-                                <span class="text-indigo-300 font-bold">2. Tranh minh họa</span>
-                                <p class="text-[10px] text-slate-400 mt-1">DALL-E vẽ ảnh phẳng flat-vector màu xanh dịu [doc4].</p>
+                            <div class="p-3 bg-slate-900 rounded-xl border border-white/5">
+                                <h4 class="text-indigo-300 font-bold mb-1 flex items-center gap-1"><i class="fa-solid fa-image"></i> DALL-E</h4>
+                                <p class="text-[11px] text-slate-400"><strong>Điểm mạnh:</strong> Tạo hình minh họa đúng chủ đề, độc bản.</p>
+                                <p class="text-[11px] text-slate-400 mt-1"><strong>Hạn chế:</strong> Hay gặp lỗi vẽ chi tiết thừa hoặc sai bố cục.</p>
+                                <p class="text-[11px] text-indigo-300 mt-2 font-semibold">Vai trò: Trợ lý tạo hình ảnh</p>
                             </div>
-                            <div class="p-2 bg-slate-900 rounded border border-white/5">
-                                <span class="text-purple-300 font-bold">3. Khung bố cục</span>
-                                <p class="text-[10px] text-slate-400 mt-1">Canva AI lên layout khối hình học thô [doc4].</p>
-                            </div>
-                            <div class="p-2 bg-slate-900 rounded border border-white/5">
-                                <span class="text-green-300 font-bold">4. Tinh chỉnh tay</span>
-                                <p class="text-[10px] text-slate-400 mt-1">Căn font chữ Việt hóa, đổi icon, bố cục lại [doc4].</p>
-                            </div>
-                        </div>
-                        <div class="p-3 bg-slate-900 rounded-lg border border-white/10">
-                            <h4 class="text-slate-100 font-bold mb-2 flex items-center gap-1"><i class="fa-solid fa-arrows-left-right text-yellow-300"></i> Kéo thanh trượt để so sánh mức độ đóng góp:</h4>
-                            <input type="range" min="0" max="100" value="40" oninput="slideAIContribution(this.value)" class="w-full accent-yellow-400 cursor-pointer">
-                            <div class="flex justify-between text-[10px] mt-1 text-slate-400">
-                                <span id="ai-percent">Đóng góp của AI: 40%</span>
-                                <span id="human-percent">Sức lao động con người: 60%</span>
-                            </div>
-                            <div class="mt-3 p-2 bg-slate-950 rounded border border-white/5 text-[11px] leading-relaxed text-slate-300" id="slide-commentary">
-                                <strong>Trạng thái thực tế:</strong> AI tạo thô bản nháp và ý tưởng ban đầu; sinh viên Ngô Phú Cường trực tiếp chỉnh lại icon kính lúp, dải màu, font chữ tiếng Việt, kiểm tra lỗi dấu bảo đảm chuẩn thẩm mỹ cá nhân [doc4, doc5].
+                            <div class="p-3 bg-slate-900 rounded-xl border border-white/5">
+                                <h4 class="text-purple-300 font-bold mb-1 flex items-center gap-1"><i class="fa-solid fa-compass-drafting"></i> Canva AI</h4>
+                                <p class="text-[11px] text-slate-400"><strong>Điểm mạnh:</strong> Tạo khung sườn thô, dải màu phối sẵn nhanh.</p>
+                                <p class="text-[11px] text-slate-400 mt-1"><strong>Hạn chế:</strong> Thành phẩm thô sơ, thiếu bản sắc nếu không sửa tay.</p>
+                                <p class="text-[11px] text-purple-300 mt-2 font-semibold">Vai trò: Trợ lý bố cục nền tảng</p>
                             </div>
                         </div>
                     </div>
@@ -851,42 +862,35 @@
             },
             6: {
                 tag: "Bài tập 6 • Tuần 6",
-                title: "Bài 6: An toàn và liêm chính học thuật trong môi trường số",
-                goal: "Xây dựng hệ thống nguyên tắc đạo đức cá nhân dựa trên phân tích chính sách học thuật 3 mức (RED - YELLOW - GREEN) và kiến tạo kịch bản thiết kế infographic tuyên truyền liêm chính sử dụng AI [doc5].",
-                lesson: "Đạo đức học thuật không nằm ở việc tránh né công nghệ, mà là biết kết hợp công nghệ một cách trung thực, minh bạch, có kiểm chứng và luôn có bản khai báo trách nhiệm học tập cá nhân rõ ràng [doc5].",
+                title: "Bài tập 6 - Bài 6: An toàn và liêm chính học thuật trong môi trường số",
+                goal: "Xây dựng và cam kết thực thi các nguyên tắc đạo đức sử dụng AI, phân định ranh giới giữa hỗ trợ hợp lý và gian lận học thuật theo quy chuẩn.",
+                lesson: "Liêm chính học thuật không phải là việc né tránh hay cấm đoán công nghệ, mà là sự minh bạch, trung thực và dũng cảm chịu trách nhiệm đối với mọi sản phẩm tri thức mà bản thân tạo ra dưới sự trợ giúp của AI.",
                 process: [
-                    "<strong>Xây dựng chính sách và nguyên tắc liêm chính:</strong><br>" +
-                    "• <strong>Phân tích chính sách hiện hành:</strong> Tham khảo Quyết định số 2557/QĐ-BKHCN của Bộ Khoa học và Công nghệ về liêm chính học thuật và mô hình quy định 3 mức: RED (Cấm dùng AI trong thi tập trung), YELLOW (Được dùng có điều kiện như sửa lỗi diễn đạt, gợi ý dàn ý), GREEN (Khuyến khích dùng làm công cụ nghề nghiệp nhưng phải khai báo minh bạch) [doc5].<br>" +
-                    "• <strong>Thiết lập bộ 7 nguyên tắc đạo đức cá nhân:</strong><br>" +
-                    "  1. <em>Dùng AI như trợ lý, không dùng để làm thay:</em> Không phó mặc tư duy cho chatbot [doc5].<br>" +
-                    "  2. <em>Luôn khai báo minh bạch:</em> Ghi rõ mức độ AI hỗ trợ trong phụ lục học tập [doc5].<br>" +
-                    "  3. <em>Không nộp nguyên văn đầu ra của AI:</em> Đọc, chỉnh sửa sâu bằng hiểu biết cá nhân [doc5].<br>" +
-                    "  4. <em>Kiểm chứng nguồn tham khảo:</em> Tuyệt đối không dùng nguồn giả mạo do AI bịa ra [doc5].<br>" +
-                    "  5. <em>Bảo mật dữ liệu cá nhân:</em> Không đưa tài liệu mật lên chatbot [doc5].<br>" +
-                    "  6. <em>Chủ động tự học:</em> Không dùng AI để trốn tránh việc rèn luyện viết, tư duy phản biện [doc5].<br>" +
-                    "  7. <em>Chịu trách nhiệm cuối cùng:</em> Sinh viên là tác giả chịu trách nhiệm 100% với tệp nộp [doc5].<br>" +
-                    "• <strong>Kịch bản thiết kế Infographic:</strong> Tiêu đề chính 'SỬ DỤNG AI CÓ TRÁCH NHIỆM TRONG HỌC THUẬT', thông điệp 'AI hỗ trợ việc học, nhưng không học thay bạn' cùng 6 khối nội dung ngắn kèm icon đơn giản: bóng đèn cho ý tưởng, kính lúp cho kiểm chứng, bút cho sửa, dấu tick cho khai báo, khóa bảo mật [doc5].<br>" +
-                    "• <strong>Canva Prompt đề xuất:</strong> 'Tạo một infographic tiếng Việt chủ đề ‘Sử dụng AI có trách nhiệm trong học thuật’... Màu xanh dương và trắng...'" [doc5]
+                    "<strong>Nghiên cứu chính sách:</strong> Nghiên cứu Quyết định số 2557/QĐ-BKHCN liên quan đến liêm chính khoa học và đạo đức nghề nghiệp; mô hình quản lý 3 mức (RED - YELLOW - GREEN) của trường Đại học Kinh tế Quốc dân (NEU); tìm hiểu học phần bắt buộc về năng lực số của ĐHQGHN.",
+                    "<strong>Ranh giới đạo đức:</strong> Hỗ trợ hợp lý (gợi ý dàn ý, sửa lỗi chính tả) vs. Gian lận học thuật (nộp nguyên văn bài do AI viết). Cảnh báo rủi ro về ngụy tạo số liệu giả, tài liệu tham khảo giả từ AI (AI hallucination), rò rỉ dữ liệu cá nhân.",
+                    "<strong>Thiết lập bộ 7 nguyên tắc đạo đức cá nhân:</strong> (i) Dùng AI như công cụ hỗ trợ, không dùng để làm thay; (ii) Luôn khai báo khi AI có đóng góp đáng kể; (iii) Không nộp nguyên văn đầu ra của AI; (iv) Kiểm chứng thông tin và nguồn tham khảo; (v) Không nhập dữ liệu cá nhân hoặc tài liệu mật vào AI; (vi) Giữ vai trò chủ động trong học tập; (vii) Chịu trách nhiệm cuối cùng với sản phẩm học thuật.",
+                    "<strong>Kịch bản Infographic:</strong> Tiêu đề chính 'Sử dụng AI có trách nhiệm trong học thuật', thông điệp cốt lõi 'AI hỗ trợ việc học, nhưng không học thay bạn' cùng 6 nội dung ngắn kèm icon tượng trưng tương ứng.",
+                    "<strong>Canva AI Prompt đề xuất:</strong> 'Tạo một infographic tiếng Việt chủ đề ‘Sử dụng AI có trách nhiệm trong học thuật’. Phong cách hiện đại, chuyên nghiệp, phù hợp với sinh viên đại học. Màu chủ đạo xanh dương và trắng. Bố cục dọc, gồm tiêu đề lớn, thông điệp chính và 6 nguyên tắc ngắn: Hỏi để học, Kiểm chứng trước khi dùng, Chỉnh sửa bằng tư duy cá nhân, Khai báo minh bạch, Bảo vệ dữ liệu, Chịu trách nhiệm cuối cùng. Thêm icon đơn giản cho từng nguyên tắc.'"
                 ],
                 interactive: `
                     <div class="flex flex-col gap-4 font-mono text-xs">
-                        <div class="text-indigo-300"># Bảng cam kết Liêm chính (Tích chọn để thắp sáng Lá chắn bảo đảm):</div>
-                        <div class="flex flex-col gap-2">
+                        <div class="text-indigo-300"># Trình ký Cam kết liêm chính học thuật (7 Nguyên tắc):</div>
+                        <div class="flex flex-col gap-2" id="pledge-list">
                             <label class="flex items-center gap-2 cursor-pointer p-2 bg-white/5 rounded">
                                 <input type="checkbox" onchange="togglePledge()" class="pledge-check accent-yellow-400">
-                                <span>1. Luôn khai báo trung thực các phần việc có AI hỗ trợ [doc5].</span>
+                                <span>1. Dùng AI làm trợ lý hỗ trợ, không phó mặc làm thay.</span>
                             </label>
                             <label class="flex items-center gap-2 cursor-pointer p-2 bg-white/5 rounded">
                                 <input type="checkbox" onchange="togglePledge()" class="pledge-check accent-yellow-400">
-                                <span>2. Tuyệt đối không nộp nguyên văn, không sao chép máy móc đầu ra của máy [doc5].</span>
+                                <span>2. Luôn chủ động khai báo minh bạch khi AI hỗ trợ lớn.</span>
                             </label>
                             <label class="flex items-center gap-2 cursor-pointer p-2 bg-white/5 rounded">
                                 <input type="checkbox" onchange="togglePledge()" class="pledge-check accent-yellow-400">
-                                <span>3. Tự mình kiểm chứng từng nguồn tài liệu, không dùng trích dẫn ảo do AI tạo ra [doc5].</span>
+                                <span>3. Kiểm chứng mọi số liệu, trích dẫn AI gợi ý trước khi dùng.</span>
                             </label>
                         </div>
                         <div class="p-3 rounded-lg border text-center font-bold" id="pledge-shield" style="background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2); color: #f87171;">
-                            <i class="fa-solid fa-shield-halved"></i> Lá chắn Liêm chính học thuật (VNU-UEB) đang chờ bạn ký cam kết [doc5]!
+                            <i class="fa-solid fa-shield-halved"></i> Vui lòng ký cam kết (Tích chọn tất cả các điều khoản trên)
                         </div>
                     </div>
                 `
@@ -915,7 +919,7 @@
             modalProcess.innerHTML = '';
             data.process.forEach(step => {
                 const stepEl = document.createElement('div');
-                stepEl.className = 'border-b border-white/5 pb-2.5 last:border-0 last:pb-0';
+                stepEl.className = 'border-b border-white/5 pb-2 last:border-0';
                 stepEl.innerHTML = step;
                 modalProcess.appendChild(stepEl);
             });
@@ -923,14 +927,8 @@
             // Inject custom interactive script and HTML view
             modalWidget.innerHTML = data.interactive;
 
-            // Trigger dynamic data load based on which card is opened
-            if (id === 2) {
-                reviewPaper(1); // Default to first paper for Bài 2
-            } else if (id === 3) {
-                changePromptTask(1); // Default to first task for Bài 3
-            } else if (id === 4) {
-                timelineGo(1); // Default to first timeline days for Bài 4
-            }
+            // Trigger dynamic data loaded for Task 3 and others
+            if (id === 3) initTask3Playground();
 
             // Trigger smooth animation
             modal.classList.remove('invisible', 'opacity-0');
@@ -976,304 +974,123 @@
         });
 
         // ==========================================
-        // DYNAMIC INTERACTION SCRIPTS (No shortcuts)
+        // SUB-SYSTEMS: Interactive widgets simulated logic
         // ==========================================
 
-        // --- BÀI 1: File Explorer simulation ---
-        function simulateAction(action) {
-            const log = document.getElementById('explorer-log');
-            const fileImp = document.getElementById('tree-file-1');
-            const fileImpCopy = document.getElementById('tree-file-2');
-            const fileMov = document.getElementById('tree-file-3');
-            const binView = document.getElementById('recycle-bin-sim');
+        // Interactive Tree navigation logic for Task 1
+        function simulateTreeAction(action) {
+            const log = document.getElementById('tree-log');
+            const file1 = document.getElementById('tree-file-1');
+            const bin = document.getElementById('tree-recycle-bin');
 
             if (action === 'delete') {
-                fileImpCopy.classList.add('line-through', 'opacity-40');
-                binView.classList.remove('hidden');
-                log.textContent = "Hệ thống: Đã thực hiện xóa GhiChuQuanTrong.txt (bản sao) chuyển vào Recycle Bin [doc6].";
-            } else if (action === 'shiftDelete') {
-                fileMov.classList.add('hidden');
-                log.textContent = "Hệ thống: Đã kích hoạt phím Shift+Delete. DiChuyen.txt đã bị xóa vĩnh viễn khỏi bộ nhớ [doc6]!";
+                file1.classList.add('hidden');
+                bin.classList.remove('hidden');
+                log.textContent = "Hệ thống: Đã chuyển tệp GhiChuQuanTrong.txt vào Thùng rác (Recycle Bin).";
             } else if (action === 'restore') {
-                binView.classList.add('hidden');
-                fileImpCopy.classList.remove('line-through', 'opacity-40');
-                log.textContent = "Hệ thống: Khôi phục thành công GhiChuQuanTrong.txt trở lại thư mục con TaiLieu [doc6]!";
+                bin.classList.add('hidden');
+                file1.classList.remove('hidden');
+                log.textContent = "Hệ thống: Khôi phục tệp GhiChuQuanTrong.txt về vị trí cũ thành công.";
             }
         }
 
-        // --- BÀI 2: 11 Papers detailed reviews ---
-        const paperEvaluationDatabase = {
-            1: {
-                title: "Tang, S. et al. (2019) – DeepPCB Dataset",
-                publisher: "arXiv preprint (Học thuật tự do)",
-                method: "Thực nghiệm xây dựng mô hình phát hiện trực tuyến trên bộ dữ liệu PCB tự tạo mới (1500 cặp ảnh độ phân giải cao).",
-                reliability: "Rất cao - Bài báo gốc giới thiệu bộ dataset chuẩn được hầu hết các công trình nghiên cứu lỗi PCB sau này sử dụng [doc1].",
-                index: "arXiv:1902.06197"
-            },
-            2: {
-                title: "Jiang, Y. et al. (2023) – DCR-YOLO",
-                publisher: "Sensors Journal (MDPI - Tạp chí uy tín chỉ mục SCIE Q1/Q2)",
-                method: "Kiến tạo mạng nơ-ron tích chập cải tiến siêu nhẹ YOLO nhằm phát hiện vết lỗi nhỏ trên bề mặt bảng mạch PCB.",
-                reliability: "Rất cao - Quy trình phản biện (peer-reviewed) chặt chẽ, dữ liệu xuất bản và chỉ số DOI rõ ràng để đối chiếu [doc1].",
-                index: "doi:10.3390/s23177310"
-            },
-            3: {
-                title: "Hou, Y. et al. (2025) – EffNet-PCB",
-                publisher: "Engineering Applications of Artificial Intelligence (Tạp chí quốc tế Elsevier uy tín SCIE Q1)",
-                method: "Thiết lập khung giải thuật EffNet-PCB độ chính xác vượt trội dựa trên nền tảng Yolov8 cải tiến.",
-                reliability: "Rất cao - Tài liệu mang tính cập nhật cao nhất để đối chiếu xu hướng công nghệ mới nhất cho đề tài [doc1].",
-                index: "Elsevier - ScienceDirect Record"
-            },
-            4: {
-                title: "Selvaraju, R.R. et al. (2017) – Grad-CAM gốc",
-                publisher: "IEEE International Conference on Computer Vision (ICCV - Hội nghị thị giác máy tính hàng đầu thế giới)",
-                method: "Đề xuất thuật toán giải thích quyết định của mạng nơ-ron sâu thông qua bản đồ nhiệt độ dốc gradient-based.",
-                reliability: "Rất cao - Bài báo kinh điển có lượng trích dẫn học thuật khổng lồ, là phương pháp luận cốt lõi cho phần XAI của đề tài [doc1].",
-                index: "doi:10.1109/ICCV.2017.74"
-            },
-            5: {
-                title: "Cação, J. et al. (2025) – Systematic Review XAI",
-                publisher: "Smart Manufacturing (Tạp chí khoa học chỉ mục quốc tế Q1)",
-                method: "Tổng quan tài liệu và hệ thống hóa các kỹ thuật AI giải thích được (XAI) ứng dụng trong chẩn đoán lỗi công nghiệp nặng.",
-                reliability: "Rất cao - Cung cấp dải bối cảnh công nghiệp rộng mở, tuy nhiên là bài tổng quan nên không thể thay thế nghiên cứu thực nghiệm gốc [doc1].",
-                index: "Smart Manufacturing Series"
-            },
-            6: {
-                title: "Elgendy, M. (2020) – Deep Learning Book",
-                publisher: "Manning Publications (Nhà xuất bản sách công nghệ chuyên sâu danh tiếng)",
-                method: "Hệ thống hóa lý thuyết nơ-ron thị giác máy tính, từ CNN cơ bản tới nhận dạng và định vị đối tượng phức tạp.",
-                reliability: "Rất cao - Sách chuyên khảo cung cấp khung cơ sở lý thuyết chuẩn mực và hệ thống, tuy nhiên tốc độ cập nhật chậm hơn bài báo khoa học [doc1].",
-                index: "ISBN: 9781617296185"
-            },
-            7: {
-                title: "Ultralytics Docs – Export Mode",
-                publisher: "Ultralytics Github & Web chính thức (Nguồn mở công nghệ)",
-                method: "Hướng dẫn thực hành xuất (export) mô hình YOLO sang định dạng nhúng biên như Edge TPU, NCNN, ONNX.",
-                reliability: "Khá cao - Tài liệu hướng dẫn mang tính thực hành tuyệt đối, tuy nhiên không có phản biện khoa học nên xếp ở mức Khá cao thay vì Rất cao [doc1]."
-            },
-            8: {
-                title: "Edge Impulse Docs – Object Detection",
-                publisher: "Edge Impulse Web (Hệ sinh thái TinyML biên lớn nhất thế giới)",
-                method: "Hướng dẫn gán nhãn bounding box và triển khai TinyML phát hiện vật thể thời gian thực trên các vi điều khiển công suất thấp.",
-                reliability: "Khá cao - Mang tính ứng dụng thực tiễn cao cho phần đánh giá tính khả thi biên của đề tài [doc1]."
-            },
-            9: {
-                title: "PubMed Record – Metadata DCR-YOLO",
-                publisher: "National Library of Medicine (Cơ sở dữ liệu y sinh học thuật Hoa Kỳ)",
-                method: "Hệ thống lưu trữ thư mục và đối chiếu chỉ mục học thuật của các công trình xuất bản.",
-                reliability: "Rất cao - Cổng tra cứu chỉ mục độc lập của bên thứ ba để xác nhận tính chính xác và uy tín của bài báo DCR-YOLO [doc1]."
-            },
-            10: {
-                title: "CVF Open Access – Grad-CAM CVF",
-                publisher: "Computer Vision Foundation (Quỹ khoa học Thị giác máy tính phi lợi nhuận)",
-                method: "Bản lưu trữ mở chính thức các bài báo xuất bản trực thuộc hội nghị hàng đầu như CVPR, ICCV.",
-                reliability: "Rất cao - Bảo đảm bài báo Grad-CAM được tải xuống từ nguồn chính gốc, chuẩn chỉnh từng ký tự xuất bản [doc1]."
-            },
-            11: {
-                title: "ScienceDirect Record – EffNet-PCB Check",
-                publisher: "Elsevier ScienceDirect Platform (Hệ thống thư viện điện tử khoa học lớn nhất thế giới)",
-                method: "Chỉ mục lưu trữ số và bảo đảm bản quyền cho các công trình nghiên cứu học thuật.",
-                reliability: "Rất cao - Cổng kiểm tra tính cập nhật, metadata độc lập của bài báo EffNet-PCB để bảo đảm thông tin chính xác nhất [doc1]."
-            }
+        // Interactive evaluation notes for Task 2
+        const docNotes = {
+            1: "Tang, S. et al. (2019): Bộ dữ liệu DeepPCB đột phá với 1.500 cặp ảnh chất lượng cao. Đạt 98.6% mAP ở tốc độ 62 FPS. Thích hợp làm nền tảng kiểm chứng thực nghiệm phát hiện lỗi nhỏ.",
+            2: "Jiang, Y. et al. (2023): DCR-YOLO giới thiệu kiến trúc mạng siêu nhẹ, tối ưu hóa phát hiện lỗi trên bảng mạch PCB công nghiệp. Đăng trên tạp chí Sensors uy tín.",
+            3: "Hou, Y. et al. (2025): Bài báo giới thiệu EffNet-PCB thiết lập chuẩn chính xác cực cao dựa trên YOLOv8. Đăng trên tạp chí quốc tế chuyên ngành EAAI.",
+            4: "Selvaraju, R.R. et al. (2017): Bài báo khoa học gốc công bố Grad-CAM tại hội nghị ICCV. Mang lại tầm nhìn giải thích trực quan (Explainable AI) bằng bản đồ nhiệt độ dốc.",
+            5: "Ultralytics Docs: Tài liệu hướng dẫn chính thống cho việc xuất và đóng gói mô hình YOLO sang các định dạng biên như Edge TPU và NCNN."
         };
 
-        function reviewPaper(id) {
-            const paper = paperEvaluationDatabase[id];
-            const panel = document.getElementById('paper-review-panel');
-            panel.innerHTML = `
-                <div class="flex flex-col gap-2">
-                    <div class="text-yellow-300 font-bold text-xs"><i class="fa-solid fa-file-invoice"></i> ${paper.title}</div>
-                    <div class="text-[11px] text-slate-400"><strong>Cơ quan/Nhà xuất bản:</strong> ${paper.publisher}</div>
-                    <div class="text-[11px] text-slate-400"><strong>Phương pháp tiếp cận:</strong> ${paper.method}</div>
-                    <div class="text-[11px] text-slate-400"><strong>Độ tin cậy & Chỉ mục:</strong> ${paper.reliability}</div>
-                    ${paper.index ? `<div class="text-[10px] text-indigo-400 bg-indigo-500/10 p-1.5 rounded inline-block w-fit mt-1">Chỉ mục học thuật: ${paper.index}</div>` : ''}
-                </div>
-            `;
+        function viewDocEvaluation(id) {
+            const textBlock = document.getElementById('doc-evaluation-detail');
+            textBlock.innerHTML = `<div class="text-xs leading-relaxed text-yellow-300">${docNotes[id]}</div>`;
         }
 
-        // --- BÀI 3: 3 Prompting Tasks comparison ---
-        const taskPromptDatabase = {
+        // Prompt Database for Task 3
+        const promptPlaygroundData = {
             1: {
                 basic: {
-                    prompt: "Hãy tóm tắt tài liệu sau: [dán nội dung tài liệu] [doc2].",
-                    output: "ChatGPT đưa ra bản tóm tắt rất ngắn nhưng mang tính chất chung chung. Một số ý quan trọng và số liệu cốt lõi chưa được làm rõ đầy đủ [doc2]."
+                    prompt: "Hãy tóm tắt tài liệu sau: [dán nội dung tài liệu]",
+                    output: "[ChatGPT phản hồi]: Bản tóm tắt thô sơ, mang tính chất sao chép chung chung và dễ bị bỏ sót nhiều luận điểm cốt lõi của tác giả."
                 },
                 improved: {
-                    prompt: "Hãy tóm tắt tài liệu sau trong khoảng 200 từ. Bản tóm tắt cần có: chủ đề chính, các luận điểm quan trọng, bằng chứng tiêu biểu và kết luận của tác giả. Không thêm thông tin ngoài tài liệu gốc. Nội dung tài liệu: [dán tài liệu] [doc2].",
-                    output: "Kết quả tóm tắt rõ ràng hơn rất nhiều, có đầy đủ chủ đề, luận điểm và kết luận. Độ dài được AI kiểm soát tốt đúng phạm vi 200 từ [doc2]."
+                    prompt: "Hãy tóm tắt tài liệu sau trong khoảng 200 từ. Bản tóm tắt cần có: chủ đề chính, các luận điểm quan trọng, bằng chứng tiêu biểu và kết luận. Không thêm thông tin ngoài tài liệu gốc.",
+                    output: "[ChatGPT phản hồi]: Bản tóm tắt gọn gàng, độ dài được kiểm soát tốt đúng phạm vi 200 từ, cấu trúc rõ ràng và bám sát văn bản gốc."
                 },
                 advanced: {
-                    prompt: "Bạn là một trợ lý học thuật hỗ trợ sinh viên đại học đọc hiểu tài liệu. Hãy tóm tắt tài liệu dưới đây theo cấu trúc: 1. Chủ đề chính; 2. 3–5 luận điểm quan trọng; 3. Các khái niệm/từ khóa cần nhớ; 4. Một câu kết luận ngắn. Hãy suy nghĩ theo từng bước nhưng chỉ trình bày kết quả cuối cùng. Không thêm thông tin không có trong văn bản. Ví dụ định dạng: - Chủ đề chính: ... - Luận điểm chính: ... Tài liệu: [dán tài liệu] [doc2].",
-                    output: "Đây là kết quả tốt nhất nhờ áp dụng nhiều kỹ thuật prompt engineering. Bản tóm tắt có cấu trúc rành mạch, dễ đọc, liệt kê chuẩn các từ khóa cốt lõi và loại bỏ hoàn toàn việc tự bịa thêm thông tin ngoài văn bản [doc2]."
+                    prompt: "Bạn là một trợ lý học thuật hỗ trợ sinh viên đại học đọc hiểu tài liệu. Hãy tóm tắt tài liệu dưới đây theo cấu trúc: 1. Chủ đề chính; 2. 3-5 luận điểm quan trọng; 3. Các từ khóa cần nhớ; 4. Một câu kết luận ngắn. Hãy suy nghĩ theo từng bước nhưng chỉ trình bày kết quả cuối cùng.",
+                    output: "[ChatGPT phản hồi]: Kết quả hoàn hảo! Định dạng hiển thị chuyên nghiệp, tóm lược khoa học từng phần giúp sinh viên đại học nắm bắt hệ thống tri thức chỉ trong 30 giây đọc."
                 }
             },
             2: {
                 basic: {
-                    prompt: "Hãy giải thích khái niệm chi phí cơ hội [doc2].",
-                    output: "AI giải thích hoàn toàn đúng lý thuyết kinh tế học nhưng còn mang tính sách vở, ngắn ngủi, thiếu ví dụ thực tế và chưa thực sự phù hợp với người mới bắt đầu học [doc2]."
+                    prompt: "Hãy giải thích khái niệm chi phí cơ hội.",
+                    output: "[ChatGPT phản hồi]: Định nghĩa sách vở, khô khan, thiếu ví dụ minh họa trực quan nên sinh viên năm nhất rất khó tiếp thu sâu sắc."
                 },
                 improved: {
-                    prompt: "Hãy giải thích khái niệm chi phí cơ hội cho sinh viên năm nhất. Trình bày theo 4 phần: định nghĩa, ví dụ thực tế, ý nghĩa trong kinh tế học và lỗi hiểu sai thường gặp [doc2].",
-                    output: "Câu trả lời dễ hiểu hơn hẳn. Việc phân chia rạch ròi 4 phần giúp kiến trúc bài học logic, đặc biệt là đã chỉ ra chính xác các lỗi hiểu sai thường gặp để tránh bị nhầm lẫn [doc2]."
+                    prompt: "Hãy giải thích khái niệm chi phí cơ hội cho sinh viên năm nhất. Trình bày theo 4 phần: định nghĩa, ví dụ thực tế, ý nghĩa trong kinh tế học và lỗi hiểu sai thường gặp.",
+                    output: "[ChatGPT phản hồi]: Phân loại rạch ròi 4 phần. Ngôn ngữ đã được đại chúng hóa và chỉ ra chính xác các quan niệm sai lầm phổ biến khi học kinh tế."
                 },
                 advanced: {
-                    prompt: "Bạn là giảng viên kinh tế đang giải thích cho sinh viên năm nhất. Hãy giải thích khái niệm chi phí cơ hội bằng ngôn ngữ dễ hiểu, có ví dụ gần gũi với đời sống sinh viên. Cấu trúc câu trả lời gồm: 1. Định nghĩa ngắn gọn; 2. Ví dụ minh họa; 3. Phân tích vì sao đó là chi phí cơ hội; 4. Một câu hỏi kiểm tra nhanh kèm đáp án. Tránh dùng quá nhiều thuật ngữ chuyên môn [doc2].",
-                    output: "Câu trả lời đầy đủ, sinh động và thân thiện nhất. Vai trò 'giảng viên' giúp AI điều chỉnh dải ngôn ngữ mềm mại, lấy ví dụ chi phí lựa chọn giờ học của sinh viên rất gần gũi, kèm câu hỏi trắc nghiệm tương tác giúp kiểm tra mức độ ghi nhớ bài ngay [doc2]."
+                    prompt: "Bạn là giảng viên kinh tế đang giải thích cho sinh viên năm nhất. Hãy giải thích khái niệm chi phí cơ hội bằng ngôn ngữ dễ hiểu, có ví dụ gần gũi với đời sống sinh viên. Cấu trúc câu trả lời gồm: 1. Định nghĩa ngắn gọn; 2. Ví dụ minh họa; 3. Phân tích vì sao đó là chi phí cơ hội; 4. Một câu hỏi kiểm tra nhanh kèm đáp án.",
+                    output: "[ChatGPT phản hồi]: Bài giảng hoàn chỉnh! Cách đặt vấn đề bằng chi phí sinh hoạt sinh viên cực kỳ gần gũi, kèm câu hỏi trắc nghiệm tương tác giúp kiểm tra mức độ hiểu bài tức thì."
                 }
             },
             3: {
                 basic: {
-                    prompt: "Hãy tạo câu hỏi ôn tập về chính sách tài khóa [doc2].",
-                    output: "AI tạo được danh sách câu hỏi nhưng số lượng câu hỏi và dạng cấu trúc kiểm tra không ổn định, đặc biệt là bị thiếu mất đáp án và hướng dẫn giải thích cụ thể [doc2]."
+                    prompt: "Hãy tạo câu hỏi ôn tập về chính sách tài khóa.",
+                    output: "[ChatGPT phản hồi]: Đưa ra một danh sách câu hỏi ngẫu nhiên, không phân định mức độ tư duy và thiếu đáp án đối chiếu."
                 },
                 improved: {
-                    prompt: "Hãy tạo 10 câu hỏi ôn tập về chính sách tài khóa, gồm 6 câu trắc nghiệm và 4 câu tự luận ngắn. Mỗi câu cần có đáp án [doc2].",
-                    output: "Câu hỏi được phân loại rõ ràng hơn, cấu trúc chính xác theo đúng dải phân chia 6 trắc nghiệm, 4 tự luận ngắn và đều được cung cấp đáp án đối chiếu [doc2]."
+                    prompt: "Hãy tạo 10 câu hỏi ôn tập về chính sách tài khóa, gồm 6 câu trắc nghiệm và 4 câu tự luận ngắn. Mỗi câu cần có đáp án.",
+                    output: "[ChatGPT phản hồi]: Đề thi phân loại rõ ràng cấu trúc trắc nghiệm và tự luận, có đáp án đi kèm giúp việc tự học có định hướng tốt."
                 },
                 advanced: {
-                    prompt: "Bạn là giảng viên môn Kinh tế vĩ mô. Hãy tạo bộ câu hỏi ôn tập về chính sách tài khóa cho sinh viên đại học. Bộ câu hỏi gồm 12 câu, chia theo 3 mức độ: nhận biết, thông hiểu và vận dụng. Mỗi mức độ có 4 câu. Bao gồm cả câu trắc nghiệm và câu tự luận ngắn. Với mỗi câu, hãy cung cấp đáp án và giải thích ngắn gọn. Ví dụ định dạng: Câu hỏi – Mức độ – Đáp án – Giải thích [doc2].",
-                    output: "Đề thi chuẩn hóa thang đo Bloom! Câu hỏi được chia chi tiết theo 3 mức độ từ nhận biết cho tới vận dụng cao để rèn luyện tư duy thực tế, có đáp án và giải thích cơ chế tài khóa cực kỳ sâu sắc giúp sinh viên tự học có hệ thống tốt nhất [doc2]."
+                    prompt: "Bạn là giảng viên môn Kinh tế vĩ mô. Hãy tạo bộ câu hỏi ôn tập về chính sách tài khóa cho sinh viên đại học. Bộ câu hỏi gồm 12 câu, chia theo 3 mức độ: nhận biết, thông hiểu và vận dụng. Mỗi mức độ có 4 câu. Bao gồm cả câu trắc nghiệm và câu tự luận ngắn. Với mỗi câu, hãy cung cấp đáp án và giải thích ngắn gọn.",
+                    output: "[ChatGPT phản hồi]: Đề thi chuẩn hóa học thuật! Các câu hỏi vận dụng thực tiễn được phân loại theo thang đo Bloom khoa học, có phần giải thích cơ chế chính sách tài khóa sâu sắc."
                 }
             }
         };
 
-        let activePromptTask = 1;
+        let currentPromptTask = 1;
 
-        function changePromptTask(id) {
-            activePromptTask = id;
-            const buttons = document.querySelectorAll('.task-btn');
+        function switchPromptTask(taskId) {
+            currentPromptTask = taskId;
+            const buttons = document.querySelectorAll('.prompt-task-btn');
             buttons.forEach((btn, idx) => {
-                if (idx + 1 === id) {
-                    btn.className = "task-btn bg-yellow-400/20 text-yellow-300 border border-yellow-300/30 px-3 py-1 rounded";
+                if (idx + 1 === taskId) {
+                    btn.className = "prompt-task-btn bg-yellow-400/20 text-yellow-300 border border-yellow-300/30 px-3 py-1 rounded";
                 } else {
-                    btn.className = "task-btn bg-slate-900 text-slate-300 px-3 py-1 rounded";
+                    btn.className = "prompt-task-btn bg-slate-900 text-slate-300 px-3 py-1 rounded";
                 }
             });
-            initPromptPlayground();
+            initTask3Playground();
         }
 
-        function initPromptPlayground() {
-            const data = taskPromptDatabase[activePromptTask];
-            document.getElementById('p-basic-short').textContent = data.basic.prompt;
-            document.getElementById('p-improved-short').textContent = data.improved.prompt;
-            document.getElementById('p-advanced-short').textContent = data.advanced.prompt;
-            document.getElementById('prompt-playground-box').innerHTML = "Nhấp chọn bất kỳ cấp độ prompt nào phía trên để xem phân tích so sánh trực quan câu lệnh và kết quả phản hồi học tập của AI [doc2].";
+        function initTask3Playground() {
+            const data = promptPlaygroundData[currentPromptTask];
+            document.getElementById('prompt-basic-text').textContent = data.basic.prompt;
+            document.getElementById('prompt-improved-text').textContent = data.improved.prompt;
+            document.getElementById('prompt-advanced-text').textContent = data.advanced.prompt;
+            document.getElementById('prompt-playground-result').innerHTML = "Nhấp chọn bất kỳ cấp độ prompt nào phía trên để xem phản hồi mô phỏng của ChatGPT.";
         }
 
-        function selectLevel(level) {
-            const data = taskPromptDatabase[activePromptTask][level];
-            const box = document.getElementById('prompt-playground-box');
-            box.innerHTML = `
-                <div class="flex flex-col gap-2">
-                    <div class="text-yellow-300 font-bold text-[11px]"><i class="fa-solid fa-arrow-right"></i> Prompt câu lệnh:</div>
+        function selectPromptLevel(level) {
+            const data = promptPlaygroundData[currentPromptTask][level];
+            const resultBox = document.getElementById('prompt-playground-result');
+            resultBox.innerHTML = `
+                <div class="flex flex-col gap-2 animate-fadeIn">
+                    <div class="text-yellow-300 font-bold">Câu lệnh gửi đi (Prompt):</div>
                     <div class="bg-white/5 p-2 rounded text-slate-300 text-[11px]">${data.prompt}</div>
-                    <div class="text-indigo-400 font-bold mt-2 text-[11px]"><i class="fa-solid fa-robot"></i> Kết quả quan sát phản hồi:</div>
-                    <div class="bg-slate-950 p-2 rounded border border-white/5 text-slate-400 text-[11px] leading-relaxed">${data.output}</div>
+                    <div class="text-indigo-300 font-bold mt-2">AI Phản hồi (Simulated Response):</div>
+                    <div class="text-slate-400 text-[11px] leading-relaxed bg-slate-950 p-2 rounded border border-white/5">${data.output}</div>
                 </div>
             `;
         }
 
-        // --- BÀI 4: 7 Days Timeline and Trello Simulation ---
-        const projectTimelineData = {
-            1: {
-                trello: `
-                    <div class="p-2 bg-white/5 rounded border border-yellow-500/20">
-                        <span class="text-[9px] bg-yellow-500/20 text-yellow-300 px-1 py-0.5 rounded">To do</span>
-                        <p class="text-[11px] mt-1 font-bold text-slate-200">Viết phần lợi ích AI (Ngày 4)</p>
-                    </div>
-                    <div class="p-2 bg-white/5 rounded border border-indigo-500/20">
-                        <span class="text-[9px] bg-indigo-500/20 text-indigo-300 px-1 py-0.5 rounded">Doing</span>
-                        <p class="text-[11px] mt-1 font-bold text-slate-200">Tìm kiếm tài liệu học tập AI (Ngày 2)</p>
-                    </div>
-                `,
-                discord: `
-                    <div><span class="text-indigo-300 font-bold">Cuong (Ngày 1):</span> Mình bắt đầu tạo bảng Kanban trên Trello nhé. Link ở đây.</div>
-                    <div><span class="text-yellow-300 font-bold">Linh (Ngày 2):</span> Nhận task tìm kiếm tài liệu. Mình sẽ lưu trữ có cấu trúc thư mục trên Drive nha.</div>
-                `
-            },
-            3: {
-                trello: `
-                    <div class="p-2 bg-white/5 rounded border border-yellow-500/20">
-                        <span class="text-[9px] bg-yellow-500/20 text-yellow-300 px-1 py-0.5 rounded">To do</span>
-                        <p class="text-[11px] mt-1 font-bold text-slate-200">Góp ý slide cuối cùng (Ngày 7)</p>
-                    </div>
-                    <div class="p-2 bg-white/5 rounded border border-indigo-500/20">
-                        <span class="text-[9px] bg-indigo-500/20 text-indigo-300 px-1 py-0.5 rounded">Doing</span>
-                        <p class="text-[11px] mt-1 font-bold text-slate-200">Sửa đổi cấu trúc Google Docs (Ngày 5)</p>
-                    </div>
-                    <div class="p-2 bg-white/5 rounded border border-green-500/20">
-                        <span class="text-[9px] bg-green-500/20 text-green-300 px-1 py-0.5 rounded">Done</span>
-                        <p class="text-[11px] mt-1 font-bold text-slate-200">Tìm tài liệu học tập AI</p>
-                    </div>
-                `,
-                discord: `
-                    <div><span class="text-indigo-300 font-bold">Cuong (Ngày 3):</span> Mình bắt tay viết lợi ích AI của sinh viên trên Doc nhóm.</div>
-                    <div><span class="text-yellow-300 font-bold">Linh (Ngày 4):</span> Nội dung có vẻ hơi dài, Cường viết thêm tóm lược comment nha.</div>
-                `
-            },
-            5: {
-                trello: `
-                    <div class="p-2 bg-white/5 rounded border border-indigo-500/20">
-                        <span class="text-[9px] bg-indigo-500/20 text-indigo-300 px-1 py-0.5 rounded">Doing</span>
-                        <p class="text-[11px] mt-1 font-bold text-slate-200">Sắp xếp tệp tin trên Drive (Ngày 6)</p>
-                    </div>
-                    <div class="p-2 bg-white/5 rounded border border-green-500/20">
-                        <span class="text-[9px] bg-green-500/20 text-green-300 px-1 py-0.5 rounded">Done</span>
-                        <p class="text-[11px] mt-1 font-bold text-slate-200">Sửa lỗi Google Docs</p>
-                    </div>
-                `,
-                discord: `
-                    <div><span class="text-indigo-300 font-bold">Cuong (Ngày 5):</span> Đã rà lỗi dấu chính tả và chỉnh lại bố cục Doc rồi nhé.</div>
-                    <div><span class="text-purple-300 font-bold">Minh (Ngày 6):</span> Bắt đầu chuyển slide sang bản final, tớ đặt tên: Nhom3_SlideThuyetTrinh_1507_Final.</div>
-                `
-            },
-            7: {
-                trello: `
-                    <div class="p-2 bg-white/5 rounded border border-green-500/20">
-                        <span class="text-[9px] bg-green-500/20 text-green-300 px-1 py-0.5 rounded">Done</span>
-                        <p class="text-[11px] mt-1 font-bold text-slate-200">Tất cả các task hoàn thiện!</p>
-                    </div>
-                `,
-                discord: `
-                    <div><span class="text-indigo-300 font-bold">Cuong (Ngày 7):</span> Check xong slide, tớ khóa quyền chỉnh sửa bản Final của nhóm trên Drive nhé. Hợp tác tốt lắm mọi người!</div>
-                `
-            }
-        };
-
-        function timelineGo(days) {
-            const buttons = document.querySelectorAll('.time-btn');
-            buttons.forEach(btn => {
-                if (btn.textContent.includes(days === 1 ? '1-2' : days === 3 ? '3-4' : days === 5 ? '5-6' : '7')) {
-                    btn.className = "time-btn bg-yellow-400/20 text-yellow-300 px-2.5 py-1 rounded";
-                } else {
-                    btn.className = "time-btn bg-slate-900 text-slate-300 px-2.5 py-1 rounded";
-                }
-            });
-
-            const data = projectTimelineData[days];
-            document.getElementById('live-trello-tasks').innerHTML = data.trello;
-            document.getElementById('live-discord-chat').innerHTML = data.discord;
-        }
-
-        // --- BÀI 5: Sliders and Matrix logic ---
-        function slideAIContribution(val) {
-            const aiPercent = document.getElementById('ai-percent');
-            const humanPercent = document.getElementById('human-percent');
-            const comm = document.getElementById('slide-commentary');
-
-            aiPercent.textContent = `Đóng góp của AI: ${val}%`;
-            humanPercent.textContent = `Sức lao động con người: ${100 - val}%`;
-
-            if (val <= 40) {
-                comm.innerHTML = `<strong>Tỉ lệ cân đối:</strong> Ở mức này, con người nắm vai trò chủ động điều phối. Sinh viên trực tiếp căn chỉnh icon, sửa dải màu trắng - xanh dương, đổi font chữ Việt hóa không lỗi và rút gọn kịch bản để đạt chất lượng cao nhất [doc4, doc5].`;
-            } else if (val > 40 && val <= 70) {
-                comm.innerHTML = `<strong>Nguy cơ trung bình:</strong> Trọng số AI tăng lên. Một số bố cục khối chữ có thể bị xô lệch, icon chưa khớp sát với nội dung và bắt đầu xuất hiện dải màu thô sơ thiếu dấu ấn cá nhân tay nghề [doc4].`;
-            } else {
-                comm.innerHTML = `<strong>Nguy cơ rập khuôn máy móc:</strong> Phụ thuộc quá nhiều vào AI. Infographic trông sẽ cực kỳ giống các template làm sẵn đại trà trên mạng, chữ dài, bố cục xô lệch và hoàn toàn thiếu vắng tính sáng tạo độc lập [doc4, doc5].`;
-            }
-        }
-
-        // --- BÀI 6: Pledge check logic ---
+        // Interactive logic for Task 6 Pledge
         function togglePledge() {
             const checks = document.querySelectorAll('.pledge-check');
             const shield = document.getElementById('pledge-shield');
@@ -1286,12 +1103,12 @@
                 shield.style.background = "rgba(16, 185, 129, 0.1)";
                 shield.style.borderColor = "rgba(16, 185, 129, 0.3)";
                 shield.style.color = "#34d399";
-                shield.innerHTML = `<i class="fa-solid fa-shield-halved animate-pulse text-xs"></i> ĐÃ THÔNG QUA! Cam kết Liêm chính Học thuật của Ngô Phú Cường đã được thắp sáng [doc5]!`;
+                shield.innerHTML = `<i class="fa-solid fa-shield-halved animate-pulse"></i> Chứng nhận Liêm chính Học thuật - Đã thông qua bản cam kết của Ngô Phú Cường!`;
             } else {
                 shield.style.background = "rgba(239, 68, 68, 0.1)";
                 shield.style.borderColor = "rgba(239, 68, 68, 0.2)";
                 shield.style.color = "#f87171";
-                shield.innerHTML = `<i class="fa-solid fa-shield-halved text-xs"></i> Lá chắn Liêm chính học thuật (VNU-UEB) đang chờ bạn ký cam kết [doc5]!`;
+                shield.innerHTML = `<i class="fa-solid fa-shield-halved"></i> Vui lòng ký cam kết (Tích chọn tất cả các điều khoản trên)`;
             }
         }
     </script>
